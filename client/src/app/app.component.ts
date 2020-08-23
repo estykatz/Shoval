@@ -11,10 +11,12 @@ export class AppComponent {
   constructor(private userService: UserService) {
   }
 
+  // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit(): void {
     this.userService.getUser()
       .subscribe((user) => {
-        debugger
+        // tslint:disable-next-line: no-debugger
+        debugger;
       });
   }
 
