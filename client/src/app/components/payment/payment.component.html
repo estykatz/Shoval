@@ -1,0 +1,68 @@
+<form  [formGroup] = "myForm">
+    <h1 class="border1">תשלומים</h1>
+    <br>
+    <fieldset>
+        <div class="block_container">
+            <div class="form-group">
+                <label>שם פרטי</label>
+                <input type="text" class="form-control" formControlName = "firstName">
+                <div *ngIf = "myForm.controls['firstName'].touched">
+                <span *ngIf = "myForm.controls['firstName'].errors?.required!=null">שדה זה נדרש</span>
+                </div>
+                <div *ngIf = "myForm.controls['firstName'].touched">
+                <span *ngIf = "myForm.controls['firstName'].errors?.pattern!=null">יש להקיש אותיות בעברית בלבד</span>
+                </div>
+              </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                <label>שם משפחה</label>
+                <input type="text" class="form-control" formControlName = "lastName" >
+                <div *ngIf ="myForm.controls['lastName'].touched">
+                <span *ngIf = "myForm.controls['lastName'].errors?.required!=null">שדה זה נדרש</span>
+                </div>
+                <div *ngIf ="myForm.controls['lastName'].touched">
+                <span *ngIf = "myForm.controls['lastName'].errors?.pattern!=null">יש להקיש אותיות בעברית בלבד</span>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="block_container ">
+            <div class="form-group">
+                <label>מחיר</label>
+                <input type="number" name="price" class="form-control" formControlName = "price">
+                <div *ngIf ="myForm.controls['price'].touched">
+                <span *ngIf = "myForm.controls['price'].errors?.required!=null">שדה זה נדרש</span>
+                </div>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                <label>תאריך</label>
+                <input type="date" class="form-control" formControlName = "date" id="dateofpayment">
+                <div *ngIf = "myForm.controls['date'].touched">
+                <span *ngIf = "myForm.controls['date'].errors?.required!=null">שדה זה נדרש</span>
+            </div>
+            </div>
+        </div>
+        <br>
+        <div>
+          <div style="text-align:center;" class="form-group">
+            <label >אופן התשלום:</label>
+            <input type="radio" name="CardOrCash"  formControlName = "Card">אשראי&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br>
+            <input type="radio" name="CardOrCash"  formControlName = "Cash">מזומן
+          </div>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div>
+            <label>ת.ז</label>
+            <input type="text" formControlName = "identity">
+            <span *ngIf = "myForm.controls['identity'].errors?.required!=null">שדה זה נדרש</span>
+            <span *ngIf = "myForm.controls['identity'].errors?.pattern!=null">יש להקיש ספרות בלבד</span>
+            <span *ngIf = "myForm.controls['identity'].errors?.minlength!=null">יש להקיש 9 ספרות</span>
+            <span *ngIf = "myForm.controls['identity'].errors?.IdentityError!=null">ת.ז שגויה</span>
+            <span *ngIf = "myForm.controls['identity'].errors?.maxlength!=null">יש להקיש 9 ספרות</span>
+        </div>
+
+    </fieldset>
+</form>

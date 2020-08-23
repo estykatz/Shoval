@@ -1,0 +1,22 @@
+.border1{
+  color: crimson;
+}
+label{
+  color: crimson;
+
+}
+.block_container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  overflow: auto;
+}
+h1{
+  text-align: center;
+}
+#dateofpayment{
+  width: 210px;
+}
+input.ng-invalid.ng-touched{
+  border-color: red;
+}

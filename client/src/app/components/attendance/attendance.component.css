@@ -1,0 +1,19 @@
+body{
+  direction:rtl;
+ }
+th{
+  color: crimson;
+  width: 250px;
+  text-align: center;
+ }
+td{
+  text-align: center;
+
+}
+table{
+  margin: 110px;
+}
+h1{
+  text-align: center;
+  color: crimson;
+}
