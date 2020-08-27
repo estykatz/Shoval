@@ -3,7 +3,7 @@
 
 const getUser = async (req, res) => {
     try {
-        return res.status(200).json({ "userName": "Sara" });
+        return res.status(200).json({"userName": "Tamar" });
     }
     catch (err) {
         return res.status(500).send("Internal Server Error");
@@ -11,5 +11,5 @@ const getUser = async (req, res) => {
 }
 
 module.exports = {
-    getUser
+    getUser 
 }
