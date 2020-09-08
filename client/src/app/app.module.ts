@@ -8,12 +8,14 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { from } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { AttendanceComponent } from './components/attendance/attendance.component';
+import { EnrollmentComponent } from './compnents/enrollment/enrollment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PaymentComponent,
-    AttendanceComponent
+    AttendanceComponent,
+    EnrollmentComponent
     
   ],
   imports: [
