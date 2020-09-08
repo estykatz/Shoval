@@ -2,6 +2,7 @@ const cors = require('cors');
 const express = require('express');
 const routes = require('./routes/userRoutes');
 const bodyParser = require('body-parser');
+const service=require('./services/Service.js')
 
 // require('dotenv').config()
 
@@ -13,65 +14,7 @@ app.use(cors({ origin: '*' }));
 app.use(bodyParser.json());
 
 app.use('/user', routes);
-app.get('/', function (req, res) {
-   
-    var sql = require("mssql/msnodesqlv8");
+app.get('/',service)
 
-    // config for your database
-    var config = {
-        driver: "msnodesqlv8",
-        server: 'localhost', 
-        database: 'ShovalSwimmingCourses' ,
-        "options": {
-            "encrypt": false,
-            "enableArithAbort": true,
-            trustedConnection: true,
-            useUTC: true
-            },
-    };
 
-    // connect to your database
-    sql.connect(config, function (err) {
-    
-        if (err) console.log(err);
-
-        // create Request object
-        var request = new sql.Request();
-           
-        // query to the database and get the records
-        request.query("select * from Student where FirstName='chana'", function (err, recordset) {
-        
-            
-            if (err) console.log(err)
-
-            // send records as a response
-            res.send(recordset);
-            
-        });
-        request.query("insert  into Student values('476583215','yafa','malach','0548345612','gur',1,54.2,'no','welcome to database')",
-        function (err, recordset) {
-            if (err) console.log(err)
-
-            // send records as a response
-           // res.send(recordset);
-        } );
-    });
-
-   // var req = new sql.Request(conn);
-//      conn.connect(function (err) {
-//        if (err) {
-//            console.log(err);
-//            return;
-//         }
-//         req.query("SELECT * FROM Student", function (err, recordset) {
-//            if (err) {
-//                console.log(err);
-//            }
-//            else { 
-//                console.log(recordset);
-//            }
-//            conn.close();
-//        });
-//  });
-});
 console.log('todo list RESTful API server started on: ' + port);
