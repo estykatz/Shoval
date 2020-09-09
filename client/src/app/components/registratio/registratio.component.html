@@ -1,19 +1,24 @@
-<form [formGroup]="myfrom" (submit) ="senData()"  >
+<form [formGroup] ="myform" (submit) ="sendData()"  >
     <h1 class="border1">פרטיים אישיים</h1>
     <fieldset>
+<<<<<<< HEAD
        
 
 
                    <div id="block_containel">
                 <div class="from-group">
+=======
+            <div id="block_containel">
+                <div class="form-group">
+>>>>>>> 8cdf1b72350cd826e87ea47b0590d19250c28881
                     <label>שם פרטי</label>
-                    <input type="text" class="form-control" FromControlName=firsname>
+                    <input type="text" class="form-control" formControlName="firstname">
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
-                <div class="from-group">
+                <div class="form-group">
                     <label>שם משפחה</label>
-                    <input type="text" class="form-control" FromControlName=lastName>
+                    <input type="text" class="form-control" formControlName="lastName">
                 </div>
 
             </div>
@@ -27,7 +32,7 @@
 
                 <div class="from-group">
                     <label>טלפון</label>
-                    <input type="text" class="form-control" FromControlName=phone>
+                    <input type="text" class="form-control" formControlName ="phone" >
                 </div>
 
             </div>
@@ -36,7 +41,7 @@
 
 
             <div id="block_containel">
-                <div class="from-group">
+                <div class="form-group">
                     <label>יום </label>
 
                     <select name="dd">
@@ -50,7 +55,7 @@
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
-                <div class="from-group">
+                <div class="form-group">
                     <label>שעה </label>
 
                     <select name="dd">
@@ -63,9 +68,9 @@
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
-                <div class="from-group">
+                <div class="form-group">
                     <label>רמת לימוד</label>
-                    <select name=select1>
+                    <select name="select1">
                         <option value="1">מתחילים</option>
                         <option value="2">שיפור</option>
                         <option value="3">מתקדמים</option>
@@ -76,25 +81,25 @@
             <br />
 
             <div id="block_containel">
-                <div class="from-group">
+                <div class="form-group">
                     <label>תעודת זהות</label>
-                    <input type="number" class="form-control" FromControlName=idnetity>
+                    <input type="number" class="form-control" formControlName = "idnetity" >
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
-                <div class="from-group">
+                <div class="form-group">
                     <label>מקום לימודים</label>
-                    <input type="text" class="form-control" FromControlName=PlaseOfStady>
+                    <input type="text" class="form-control" formControlName= "PlaseOfStady">
                 </div>
 
             </div>
             <br />
-            <div class="from-group">
+            <div class="form-group">
                 <input type="text" class="form-control">
             </div>
 
             <input type="submit" class="btn btn-primry">
     </fieldset>
-   
+
 </form>
-<div>{{mass}}</div>
+<!-- <div>{{mass}}</div> -->

@@ -1,5 +1,6 @@
 <nav class="nav">
     <ul class="nav nav-pills nav-fill">
+        <li class="nav-link"><a [routerLink] =  "['/new-user']"  routerLinkActive = "activelink" class="a" (click)="startb()">להרשמה</a></li>
         <li class="nav-link"><a [routerLink] =  "['/attendance']"  routerLinkActive = "activelink" class="a" (click)="starta()">נוכחות</a></li>
         <li class="nav-link"><a [routerLink] = "['/payment']"  routerLinkActive = "activelink" class="a" (click)="start()">לתשלום</a></li>
     </ul>
@@ -9,9 +10,12 @@
 
 
 <div>
-    <div class="content" role="main" *ngIf = "visible == false && visibleattendance==false">
+    <div class="content" role="main" *ngIf = "visible == false && visibleattendance==false && visibleuser==false">
 
         <h1>חוגי שחיה שובל</h1>
+    </div>
+    <div *ngIf = "visibleuser">
+      <app-new-user></app-new-user>
     </div>
      <div *ngIf = "visible">
         <app-payment></app-payment>

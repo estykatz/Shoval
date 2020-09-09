@@ -1,0 +1,14 @@
+.form-control{
+  width:200px;
+  text-align: center;
+}
+.form-group{
+text-align: center;
+}
+h1{
+  text-align: center;
+  margin: 50px;
+}
+input.ng-invalid.ng-touched{
+  border-color: red;
+}

@@ -1,0 +1,21 @@
+<form  [formGroup] = "myForm">
+  <h1 class="border1">הרשמה</h1>
+  <fieldset>
+      <div class="form-group">
+        <label>שם</label>
+        <input type="text" class="form-control" formControlName = "name">
+        <span *ngIf = "myForm.controls['name'].errors?.required!=null">שדה זה נדרש</span>
+      </div>
+      <div class="form-group">
+        <label>סיסמא</label>
+        <input type="password" class="form-control" formControlName = "password">
+      </div>
+      <div class="form-group">
+        <label>אימות סיסמא</label>
+        <input type="password" class="form-control" formControlName = "rightpassword">
+        <span *ngIf = "myForm.controls['rightpassword'].errors?.PasswordError!=null">הסיסמאות אינן תואמות </span>
+      </div>
+
+  </fieldset>
+  <input type="submit" class="btn btn-primary">
+</form>
