@@ -6,6 +6,7 @@ describe('RegistratioComponent', () => {
   let component: RegistratioComponent;
   let fixture: ComponentFixture<RegistratioComponent>;
 
+  
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ RegistratioComponent ]
