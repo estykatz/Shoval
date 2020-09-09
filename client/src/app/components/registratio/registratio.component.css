@@ -4,4 +4,5 @@ input.ng-invalid.ng.touched{
 }
 input.ng-valid.ng.touched{
    border-color: green; 
+   
 }
