@@ -1,7 +1,8 @@
 // const usersService = require('../services/UsersService');
-var connect = require('../services/Service');
 //const { connection } = require('..Service/services/Service');
-
+let connection = require('../services/Service');
+const { request } = require('express');
+let myConnect = new connection();
 const getUser = async (req, res) => {
     try {
         return res.status(200).json({ "userName": "Tamar" });
@@ -12,14 +13,14 @@ const getUser = async (req, res) => {
 }
 
 function AddUser(UserName, Password, email) {
-    var sql = require("mssql/msnodesqlv8");
-    sql.connect(config, function (err) {
-        if (err) console.log(err);
-        var request = new sql.Request();
-        request.query("select * from Student where FirstName='chana'", function (err, recordset) {
+ let c = myConnect.connection;
+ console.log(c);
+
+
+     c.request.query("select * from Student where FirstName='chana'", function (err, recordset) {
             if (err) console.log(err)
             res.send(recordset);
-        });
+       
     });
     //   var request = new connect.sql.Request();
     //   request.query("insert into Users values(UserName,Password,email)", function (err, recordset) {
