@@ -1,0 +1,99 @@
+<form [formGroup]="myfrom" (submit) ="senData()"  >
+    <h1 class="border1">פרטיים אישיים</h1>
+    <fieldset>
+       
+
+            <div id="block_containel">
+                <div class="from-group">
+                    <label>שם פרטי</label>
+                    <input type="text" class="form-control" FromControlName=firsname>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                <div class="from-group">
+                    <label>שם משפחה</label>
+                    <input type="text" class="form-control" FromControlName=lastName>
+                </div>
+
+            </div>
+        <br>
+            <div id="block_containel">
+                <div class="from-group">
+                    <label>כתובת</label>
+                    <input type="text" class="form-control">
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                <div class="from-group">
+                    <label>טלפון</label>
+                    <input type="text" class="form-control" FromControlName=phone>
+                </div>
+
+            </div>
+            <br />
+
+
+
+            <div id="block_containel">
+                <div class="from-group">
+                    <label>יום </label>
+
+                    <select name="dd">
+                        <option value="1">ראשון</option>
+                        <option value="2">שני</option>
+                        <option value="3">רביעי</option>
+                        <option value="4">חמישי</option>
+                        <option value="5">שישי</option>
+                    </select>
+
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                <div class="from-group">
+                    <label>שעה </label>
+
+                    <select name="dd">
+                        <option value="1">16:05</option>
+                        <option value="2">15:00</option>
+                        <option value="3">20:00</option>
+                        <option value="4">17:00</option>
+                        <option value="5">שישי</option>
+                    </select>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                <div class="from-group">
+                    <label>רמת לימוד</label>
+                    <select name=select1>
+                        <option value="1">מתחילים</option>
+                        <option value="2">שיפור</option>
+                        <option value="3">מתקדמים</option>
+                    </select>
+
+                </div>
+            </div>
+            <br />
+
+            <div id="block_containel">
+                <div class="from-group">
+                    <label>תעודת זהות</label>
+                    <input type="number" class="form-control" FromControlName=idnetity>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                <div class="from-group">
+                    <label>מקום לימודים</label>
+                    <input type="text" class="form-control" FromControlName=PlaseOfStady>
+                </div>
+
+            </div>
+            <br />
+            <div class="from-group">
+                <input type="text" class="form-control">
+            </div>
+
+            <input type="submit" class="btn btn-primry">
+    </fieldset>
+   
+</form>
+<div>{{mass}}</div>
