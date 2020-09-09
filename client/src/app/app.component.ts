@@ -7,7 +7,10 @@ import { UserService } from './services/user.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  title = 'Shoval';
+  visible = false;
+  visibleattendance = false;
+  visibleuser = false;
   constructor(private userService: UserService) {
   }
 
@@ -21,9 +24,9 @@ export class AppComponent {
   }
 
 
-  title = 'Shoval';
-  visible = false;
-  visibleattendance = false;
+  startb() {
+    this.visibleuser = true;
+  }
   start() {
     this.visible = true;
   }
