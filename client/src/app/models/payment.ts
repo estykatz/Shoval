@@ -3,7 +3,7 @@ export class Payment {
   PriceToStudent: number;
   Sum: number;
   WayofPayment: number;
-  PaymentTransfer: number;//למה התכוונו התרגום זה העברה תשלום
+  PaymentTransfer: number; // למה התכוונו התרגום זה העברה תשלום
   Date: Date;
 
 
