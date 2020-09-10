@@ -21,7 +21,7 @@ export class NewUserComponent implements OnInit {
   }
   addNewUser() {
     if (this.myForm.valid) {
-      let u = new User();
+      let u = newUser();
       u.name = this.myForm.controls.name.value;
       u.email = this.myForm.controls.email.value;
       u.password = this.myForm.controls.password.value;
