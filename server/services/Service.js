@@ -61,12 +61,12 @@ const express = require('express').Router();
 //        });
 //  });
 
-module.exports = {
-   connection:function(req, res){
-    var sql = require("mssql/msnodesqlv8");
+module.exports = function(){
+   this.connection=(req, res)=>{
+    let sql = require("mssql/msnodesqlv8");
 
     // config for your database
-    var config = {
+    let config = {
         driver: "msnodesqlv8",
         server: 'localhost', 
         database: 'ShovalSwimmingCourses' ,
@@ -84,7 +84,7 @@ module.exports = {
         if (err) console.log(err);
 
         // create Request object
-        var request = new sql.Request();
+        let request = new sql.Request();
            
         // query to the database and get the records
         request.query("select * from Student where FirstName='chana'", function (err, recordset) {

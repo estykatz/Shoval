@@ -1,9 +1,14 @@
-<form  [formGroup] = "myForm">
+<form  [formGroup] = "myForm" (submit)="addNewUser()">
   <h1 class="border1">הרשמה</h1>
   <fieldset>
       <div class="form-group">
         <label>שם</label>
         <input type="text" class="form-control" formControlName = "name">
+        <span *ngIf = "myForm.controls['name'].errors?.required!=null">שדה זה נדרש</span>
+      </div>
+      <div class="form-group">
+        <label>מייל</label>
+        <input type="email" class="form-control" formControlName = "email">
         <span *ngIf = "myForm.controls['name'].errors?.required!=null">שדה זה נדרש</span>
       </div>
       <div class="form-group">
@@ -13,9 +18,9 @@
       <div class="form-group">
         <label>אימות סיסמא</label>
         <input type="password" class="form-control" formControlName = "rightpassword">
-        <span *ngIf = "myForm.controls['rightpassword'].errors?.PasswordError!=null">הסיסמאות אינן תואמות </span>
+        <span *ngIf = "myForm.errors?.PasswordError">הסיסמאות אינן תואמות </span>
       </div>
 
   </fieldset>
-  <input type="submit" class="btn btn-primary">
+  <input type="submit" class="btn btn-primary" value="צור משתמש">
 </form>
