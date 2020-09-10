@@ -2,7 +2,7 @@
 //const { connection } = require('..Service/services/Service');
 let connection = require('../services/Service');
 const { request } = require('express');
-let myConnect = new connection();
+let myConnect = new connection().connection;
 const getUser = async (req, res) => {
     try {
         return res.status(200).json({ "userName": "Tamar" });
@@ -13,30 +13,38 @@ const getUser = async (req, res) => {
 }
 
 function AddUser(UserName, Password, email) {
- let c = myConnect.connection;
- console.log(c);
+    let c = myConnect.connection;
+    console.log(c);
 
-
-     c.request.query("select * from Student where FirstName='chana'", function (err, recordset) {
-            if (err) console.log(err)
-            res.send(recordset);
-       
+    myConnect.connect(function (error) {
+        if (error) {
+            console.log("Error while connecting to database")
+        }
+        else {
+            console.log('connected')
+        }
     });
-    //   var request = new connect.sql.Request();
-    //   request.query("insert into Users values(UserName,Password,email)", function (err, recordset) {
+}
+//  c.request.query("select * from Student where FirstName='chana'", function (err, recordset) {
+//         if (err) console.log(err)
+//         res.send(recordset);
+
+// });
+//   var request = new connect.sql.Request();
+//   request.query("insert into Users values(UserName,Password,email)", function (err, recordset) {
 
 
-    //         if (err) console.log(err)
+//         if (err) console.log(err)
 
-    //         // send records as a response
-    //         res.send(recordset);
+//         // send records as a response
+//         res.send(recordset);
 
-    //     });
-    };
+//     });
+//};
 
-    //req.query("insert into Users values(UserName,Password,email)")
+//req.query("insert into Users values(UserName,Password,email)")
 
 
-    module.exports = {
-        getUser,AddUser
-    }
+module.exports = {
+    getUser, AddUser
+}
