@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { passwordValidator } from 'src/app/validators/userpassword.validator';
 import { UserService } from 'src/app/services/user.service';
+import {NewUser} from 'src/app/models/newUser';
 @Component({
   selector: 'app-new-user',
   templateUrl: './new-user.component.html',
@@ -21,14 +22,15 @@ export class NewUserComponent implements OnInit {
   }
   addNewUser() {
     if (this.myForm.valid) {
-      let u = newUser();
-      u.name = this.myForm.controls.name.value;
-      u.email = this.myForm.controls.email.value;
+      const u = new NewUser();
       u.password = this.myForm.controls.password.value;
-      this.userService.createUser(u).subscribe(ans=>{
+      u.userName = this.myForm.controls.name.value;
+      u.userAdmin = false;
+      u.email = this.myForm.controls.email.value;
+      this.userService.createUser(u).subscribe(ans => {
 
         this.myForm.reset();
-      })
+      });
     }
   }
 }

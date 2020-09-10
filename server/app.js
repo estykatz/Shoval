@@ -13,10 +13,10 @@ app.listen(port);
 app.use(cors({ origin: '*' }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use('/user', routes);
+//app.use('/user', routes);
 app.use('/',service)
 
-app.use('/add',routes)
+//app.use('/add',routes)
    
 
 console.log('todo list RESTful API server started on: ' + port);

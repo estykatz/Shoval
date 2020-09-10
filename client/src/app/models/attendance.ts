@@ -1,6 +1,6 @@
-export class Attendance{
-lastName:string;
-firstName:string;
+export class Attendance {
+  lastName: string;
+  firstName: string;
 
 
 }
