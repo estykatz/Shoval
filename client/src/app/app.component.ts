@@ -11,6 +11,7 @@ export class AppComponent {
   visible = false;
   visibleattendance = false;
   visibleuser = false;
+  regist = false;
   constructor(private userService: UserService) {
   }
 
@@ -22,7 +23,9 @@ export class AppComponent {
         debugger;
       });
   }
-
+  startre() {
+    this.regist = true;
+  }
 
   startb() {
     this.visibleuser = true;

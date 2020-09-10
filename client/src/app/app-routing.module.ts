@@ -4,11 +4,13 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { AttendanceComponent } from './components/attendance/attendance.component';
 import { AppComponent } from './app.component';
 import { NewUserComponent } from './components/new-user/new-user.component';
+import { RegistratioComponent } from './components/registratio/registratio.component';
 
 const routes: Routes = [
   { path: 'payment', component: PaymentComponent },
   { path: 'attendance', component: AttendanceComponent },
   { path: 'new-user', component: NewUserComponent },
+  { path: 'registratio', component: RegistratioComponent },
   { path: '', component: AppComponent }
 ];
 
