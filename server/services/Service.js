@@ -1,4 +1,5 @@
 const express = require('express').Router();
+
 // function connection(req, res){
    
 //     var sql = require("mssql/msnodesqlv8");
@@ -61,10 +62,11 @@ const express = require('express').Router();
 //        });
 //  });
 
-module.exports = function(){
-   this.connection=(req, res)=>{
+let connectToSql=function connectToSql() {
     let sql = require("mssql/msnodesqlv8");
-
+   this.connection=(req, res)=>{
+    
+    
     // config for your database
     let config = {
         driver: "msnodesqlv8",
@@ -98,5 +100,8 @@ module.exports = function(){
         });
    });
    }
+   return connection;
 }
-//module.exports = connect;
+module.exports = connectToSql;
+    
+

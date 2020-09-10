@@ -1,8 +1,8 @@
 // const usersService = require('../services/UsersService');
 //const { connection } = require('..Service/services/Service');
 let connection = require('../services/Service');
-const { request } = require('express');
-let myConnect = new connection().connection;
+
+
 const getUser = async (req, res) => {
     try {
         return res.status(200).json({ "userName": "Tamar" });
@@ -12,18 +12,30 @@ const getUser = async (req, res) => {
     }
 }
 
-function AddUser(UserName, Password, email) {
-    let c = myConnect.connection;
-    console.log(c);
+let AddUser=function AddUser(nu) {
+    console.log('success');
+    let sql = require("mssql/msnodesqlv8");
+    var con=connection.connectiontosql();
+    con.connect(function (err){
+        if(err) throw err;
+        console.log('connected');
+        var insertToSql=`insert into Users values(${nu.userName},${nu.password},${nu.email},${nu.userAdmin})`;
+        con.query(sql, function(err){
+            if(err){return false;}
+            return sql;
+        })
+    })
+    // let c = myConnect.connection;
+    // console.log(c);
 
-    myConnect.connect(function (error) {
-        if (error) {
-            console.log("Error while connecting to database")
-        }
-        else {
-            console.log('connected')
-        }
-    });
+    // myConnect.connect(function (error) {
+    //     if (error) {
+    //         console.log("Error while connecting to database")
+    //     }
+    //     else {
+    //         console.log('connected')
+    //     }
+    // });
 }
 //  c.request.query("select * from Student where FirstName='chana'", function (err, recordset) {
 //         if (err) console.log(err)
@@ -46,5 +58,5 @@ function AddUser(UserName, Password, email) {
 
 
 module.exports = {
-    getUser, AddUser
+    getUser,AddUser
 }
