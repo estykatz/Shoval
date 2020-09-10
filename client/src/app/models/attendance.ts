@@ -10,6 +10,6 @@ export class Attendance {
     this.HMO = hmo;
     this.TransferDate = trans;
   }
-
+P
 
 }
