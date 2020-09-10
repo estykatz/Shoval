@@ -1,13 +1,16 @@
-<<<<<<< HEAD
-export class Attendance{
-lastName:string;
-firstName:string;
-id
-=======
-export class Attendance {
-  lastName: string;
-  firstName: string;
 
->>>>>>> 439ac7aa9f7f33cf9516064750dc2fdf765ae686
+export class Attendance{
+
+identity:string
+HMO:number//זה גם אמור להיות בםצנעו
+TransferDate:Date
+
+ constructor(id:string,hmo:number,trans:Date)
+{
+    this.identity=id;
+    this.HMO=hmo;
+    this.TransferDate=trans;
+}
+
 
 }
