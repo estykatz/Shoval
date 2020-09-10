@@ -7,6 +7,8 @@ userName:string
 userAdmin:boolean
 email:string
 
+
+
 constructor (id:number,pd:string,user:string,admin:boolean,em:string)
 {
 this.Id=id;
