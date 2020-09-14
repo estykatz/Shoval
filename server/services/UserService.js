@@ -62,7 +62,7 @@ const express = require('express').Router();
 //        });
 //  });
 
-let connectToSql=function connectToSql() {
+function connectToSql() {
     
    this.connection=(req, res)=>{
     
@@ -81,24 +81,24 @@ let connectToSql=function connectToSql() {
     };
 
     // connect to your database
-    sql.connect(config, function (err) {
+//     sql.connect(config, function (err) {
     
-        if (err) console.log(err);
+//         if (err) console.log(err);
 
-        // create Request object
-        let request = new sql.Request();
+//         // create Request object
+//         let request = new sql.Request();
            
-        // query to the database and get the records
-        request.query("select * from Student where FirstName='chana'", function (err, recordset) {
+//         // query to the database and get the records
+//         request.query("select * from Student where FirstName='chana'", function (err, recordset) {
         
             
-            if (err) console.log(err)
+//             if (err) console.log(err)
 
-            // send records as a response
-            res.send(recordset);
+//             // send records as a response
+//             res.send(recordset);
             
-        });
-   });
+//         });
+//    });
    }
    return connection;
 }

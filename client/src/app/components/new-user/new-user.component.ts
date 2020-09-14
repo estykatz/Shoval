@@ -21,11 +21,11 @@ export class NewUserComponent implements OnInit {
     }, passwordValidator(['password', 'rightpassword']));
   }
   addNewUser() {
-    if (this.myForm.valid) {
+    if (this.myForm.invalid) {
       const u = new NewUser();
       u.password = this.myForm.controls.password.value;
       u.userName = this.myForm.controls.name.value;
-      u.userAdmin = false;
+      u.userAdmin = 0;
       u.email = this.myForm.controls.email.value;
       this.userService.createUser(u).subscribe(ans => {
 
