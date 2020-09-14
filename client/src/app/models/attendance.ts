@@ -10,5 +10,9 @@ export class Attendance {
     this.HMO = hmo;
     this.TransferDate = trans;
   }
+<<<<<<< HEAD
+=======
+P
+>>>>>>> 2b202c5e257a61fb01f875675a946732dc49113b
 
 }
