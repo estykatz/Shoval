@@ -28,7 +28,7 @@ import { NewUserComponent } from './components/new-user/new-user.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [DataService,LoginService],
+ // providers: [DataService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
