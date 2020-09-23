@@ -14,7 +14,7 @@ export class NewUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
-      name: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[א-ת]{1}[א-ת ]*')])),
+      name: new FormControl('', Validators.compose([Validators.required])),
       email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
       password: new FormControl('', Validators.compose([Validators.required])),
       rightpassword: new FormControl('', Validators.compose([Validators.required]))
