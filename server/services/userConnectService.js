@@ -3,7 +3,7 @@ const sql = require("mssql");
 const createUser = async (user) => {
     try {
         let sql = require("mssql/msnodesqlv8");
-        let dbConfig = {
+        let dbConfig = new sql.ConnectionPool({
             driver: "msnodesqlv8",
             server: 'localhost', 
             database: 'ShovalSwimmingCourses' ,
@@ -13,22 +13,21 @@ const createUser = async (user) => {
                 trustedConnection: true,
                 useUTC: true
                 },
-            };
-            let conn = new sql.ConnectionPool(dbConfig);
-            conn.connect(function (err) {
-                if (err) throw err;
-                console.log('connected');
-                let post={
-                    userName:user.userName,
-                    password:user.password,
-                    email:user.email,
-                    userAdmin:user.userAdmin
-                };
+            });
+           // let conn = new sql.Connection(dbConfig);
+            dbConfig.connect().then(()=>{//function (err) {
                 
-                console.log(post);
-                let req= new sql.Request();
-                req.query("insert into Users values(`'+${user.userName}+','+${user.password}+','+${user.email}+','+${user.userAdmin}+'`)",
-                function (err, recordset) {
+                console.log('connected');
+                // let post={
+                //     userName:user.userName,
+                //     password:user.password,
+                //     email:user.email,
+                //     userAdmin:user.userAdmin
+                // };               
+                // console.log(post);
+              //  let req= new sql.Request();
+                dbConfig.query(`insert into Users values(${user.userName},${user.password},${user.email},${user.userAdmin})`,
+                 (err)=> {
                     if (err) console.log(err)
                   //  res.send(recordset);
                 } );
