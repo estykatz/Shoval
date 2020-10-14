@@ -38,6 +38,7 @@ export class RegistratioComponent implements OnInit {
       s.identity = this.myForm.controls.identity.value;
       s.PlaceOfStudy = this.myForm.controls.PlaceOfStudy.value;
       s.SwimmingLevels = this.myForm.controls.level.value;
+
     }
   }
 }
