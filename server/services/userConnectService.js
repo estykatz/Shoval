@@ -18,15 +18,21 @@ const createUser = async (user) => {
             dbConfig.connect().then(()=>{//function (err) {
                 
                 console.log('connected');
-                // let post={
-                //     userName:user.userName,
-                //     password:user.password,
-                //     email:user.email,
-                //     userAdmin:user.userAdmin
-                // };               
+                let post={
+                    userName:user.userName,
+                     password:user.password,
+                     email:user.email,
+                     userAdmin:user.userAdmin
+                 };   
+                 let name=post['userName'] ;
+                 let pass=post['password'];
+                 let email=post['email'];
+                 let usera=post['userAdmin'] ;          
                 // console.log(post);
               //  let req= new sql.Request();
-                dbConfig.query(`insert into Users values(${user.userName},${user.password},${user.email},${user.userAdmin})`,
+              //"insert into Users values('rrr','11','fff',0)"
+              //`insert into Users values(${user.userName},${user.password},${user.email},${user.userAdmin})
+                dbConfig.query("insert into Users values('"+name+"','"+pass+"','"+email+"','"+usera+"')",
                  (err)=> {
                     if (err) console.log(err)
                   //  res.send(recordset);

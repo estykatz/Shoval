@@ -1,89 +1,129 @@
- <form  [formGroup] ="myform" (submit) ="sendData()"  >
+<form
+    [formGroup]="myForm"
+    (submit)="addStudent()"
+>
     <h1 class="border1">פרטיים אישיים</h1>
     <fieldset>
-           <div id="block_containel">
-                 <div class="form-group">
-                    <label>שם פרטי</label>
-                    <input type="text" class="form-control" formControlName ="firstname">
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div class="form-group">
-                    <label>שם משפחה</label>
-                    <input type="text" class="form-control" formControlName ="lastName">
-                </div>
-            </div>
-            <br>
-            <div id="block_containel">
-                <div class="from-group">
-                    <label>כתובת</label>
-                    <input type="text" class="form-control">
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-                <div class="from-group">
-                    <label>טלפון</label>
-                    <input type="text" class="form-control" formControlName ="phone" >
-                </div>
-
-            </div>
-            <br/>
-            <div id="block_containel">
-                <div class="form-group">
-                    <label>יום </label>
-
-                    <select name="dd">
-                        <option value="1">ראשון</option>
-                        <option value="2">שני</option>
-                        <option value="3">רביעי</option>
-                        <option value="4">חמישי</option>
-                        <option value="5">שישי</option>
-                    </select>
-
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-                <div class="form-group">
-                    <label>שעה </label>
-
-                    <select name="dd">
-                        <option value="1">16:05</option>
-                        <option value="2">15:00</option>
-                        <option value="3">20:00</option>
-                        <option value="4">17:00</option>
-                        <option value="5">שישי</option>
-                    </select>
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-                <div class="form-group">
-                    <label>רמת לימוד</label>
-                    <select name="select1">
-                        <option value="1">מתחילים</option>
-                        <option value="2">שיפור</option>
-                        <option value="3">מתקדמים</option>
-                    </select>
-
-                </div>
-            </div>
-            <br/>
-            <div id="block_containel">
-                <div class="form-group">
-                    <label>תעודת זהות</label>
-                    <input type="number" class="form-control" formControlName = "idnetity" >
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-                <div class="form-group">
-                    <label>מקום לימודים</label>
-                    <input type="text" class="form-control" formControlName= "PlaseOfStady">
-                </div>
-
-            </div>
-            <br />
+        <div id="block_containel">
             <div class="form-group">
-                <input type="text" class="form-control">
+                <label>שם פרטי</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    formControlName="firstname"
+                >
             </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                <label>שם משפחה</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    formControlName="lastName"
+                >
+            </div>
+        </div>
+        <br>
+        <div id="block_containel"></div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="from-group">
+            <label>טלפון</label>
+            <input
+                type="text"
+                class="form-control"
+                formControlName="phone"
+            >
+        </div>
 
-            <input type="submit" class="btn btn-primry">
-   </fieldset>
- </form>
+
+
+        <br>
+        <div id="block_containel">
+            <div class="form-group">
+                <label>יום</label>
+
+
+                <select
+                    name="dd"
+                    formControlName="day"
+                >
+                    <option value="1">ראשון</option>
+                    <option value="2">שני</option>
+                    <option value="3">רביעי</option>
+                    <option value="4">חמישי</option>
+                    <option value="5">שישי</option>
+                </select>
+
+
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                <label>שעה</label>
+
+
+                <select
+                    name="dd"
+                    formControlName="hour"
+                >
+                    <option value="1">16:05</option>
+                    <option value="2">15:00</option>
+                    <option value="3">20:00</option>
+                    <option value="4">17:00</option>
+                    <option value="5">שישי</option>
+                </select>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                <label>רמת לימוד</label>
+                <select
+                    name="select1"
+                    formControlName="level"
+                >
+                    <option value="1">מתחילים</option>
+                    <option value="2">שיפור</option>
+                    <option value="3">מתקדמים</option>
+                </select>
+
+
+            </div>
+        </div>
+        <br>
+        <div id="block_containel">
+            <div class="form-group">
+                <label>מקום לימודים</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    formControlName="PlaseOfStudy"
+                >
+            </div>
+            <div class="form-group">
+                <label>חבר בקופת חולים</label>
+                <input
+                    type="radio"
+                    formControlName="hmo"
+                >
+            </div>
+        </div>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div>
+            <label>ת.ז</label>
+            <input
+                type="text"
+                formControlName="identity"
+            >
+            <span *ngIf ="myForm.controls['identity'].errors?.required!=null">שדה זה נדרש</span>
+            <span *ngIf ="myForm.controls['identity'].errors?.pattern!=null">יש להקיש ספרות בלבד</span>
+            <span *ngIf ="myForm.controls['identity'].errors?.minlength!=null">יש להקיש 9 ספרות</span>
+            <span *ngIf ="myForm.controls['identity'].errors?.IdentityError!=null">ת.ז שגויה</span>
+            <span *ngIf ="myForm.controls['identity'].errors?.maxlength!=null">יש להקיש 9 ספרות</span>
+        </div>
+        <input
+            type="submit"
+            class="btn btn-primry"
+        >
+    </fieldset>
+    <input  type="submit" value="להרשמה" class="btn btn-primary">
+</form>
 <!-- <div>{{mass}}</div> -->

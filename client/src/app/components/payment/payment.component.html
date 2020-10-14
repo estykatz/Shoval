@@ -1,4 +1,4 @@
-<form  [formGroup] = "myForm">
+<form  [formGroup] = "myForm" (submit)="addNewPayment()">
     <h1 class="border1">תשלומים</h1>
     <br>
     <fieldset>
@@ -12,7 +12,7 @@
                 <div *ngIf = "myForm.controls['firstName'].touched">
                 <span *ngIf = "myForm.controls['firstName'].errors?.pattern!=null">יש להקיש אותיות בעברית בלבד</span>
                 </div>
-              </div>
+            </div>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <div class="form-group">
                 <label>שם משפחה</label>
@@ -27,10 +27,17 @@
         </div>
         <br>
         <br>
+        <div class="form-group">
+          <label>טלפון </label>
+          <input type="text" class="form-control" formControlName = "phone" >
+          <div *ngIf ="myForm.controls['phone'].touched">
+          <span *ngIf = "myForm.controls['phone'].errors?.required!=null">שדה זה נדרש</span>
+          </div>
+        </div>
         <div class="block_container ">
             <div class="form-group">
                 <label>מחיר</label>
-                <input type="number" name="price" class="form-control" formControlName = "price">
+                <input type="text" value="99" name="price" class="form-control" formControlName = "price" >
                 <div *ngIf ="myForm.controls['price'].touched">
                 <span *ngIf = "myForm.controls['price'].errors?.required!=null">שדה זה נדרש</span>
                 </div>
@@ -48,21 +55,21 @@
         <div>
           <div style="text-align:center;" class="form-group">
             <label >אופן התשלום:</label>
-            <input type="radio" name="CardOrCash"  formControlName = "Card">אשראי&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="CardOrCash"  formControlName = "CardOrCash">אשראי&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br>
-            <input type="radio" name="CardOrCash"  formControlName = "Cash">מזומן
+            <input type="radio" name="CardOrCash"  formControlName = "CardOrCash">מזומן
+          </div>
+        </div>
+        <div>
+          <div style="text-align:center;" class="form-group">
+            <label >התשלום מיועד:</label>
+            <input type="radio" name="shoval" formControlName = "shoval">שובל&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br>
+            <input type="radio" name="mapalim"  formControlName = "mapalim">מפלים
           </div>
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <div>
-            <label>ת.ז</label>  
-            <input type="text" formControlName = "identity">
-            <span *ngIf = "myForm.controls['identity'].errors?.required!=null">שדה זה נדרש</span>
-            <span *ngIf = "myForm.controls['identity'].errors?.pattern!=null">יש להקיש ספרות בלבד</span>
-            <span *ngIf = "myForm.controls['identity'].errors?.minlength!=null">יש להקיש 9 ספרות</span>
-            <span *ngIf = "myForm.controls['identity'].errors?.IdentityError!=null">ת.ז שגויה</span>
-            <span *ngIf = "myForm.controls['identity'].errors?.maxlength!=null">יש להקיש 9 ספרות</span>
-        </div>
 
     </fieldset>
+    <input type="submit" value="לתשלום" class="btn btn-primary">
 </form>

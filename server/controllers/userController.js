@@ -1,6 +1,6 @@
 const usersService = require('../services/userConnectService');
 //const { connection } = require('..Service/services/Service');
-let Connection = require('../services/UserService');
+let Connection = require('../services/userService');
 
 
 const getUser = async (req, res) => {

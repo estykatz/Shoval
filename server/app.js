@@ -2,22 +2,34 @@ const cors = require('cors');
 const express = require('express');
 const routes = require('./routes/userRoutes');
 const bodyParser = require('body-parser');
-const service=require('./services/UserService');
-
+const service = require('./services/userService');
+const routespayment = require('./routes/paymentRoutes');
+const servicePayment = require('./services/paymentService');
+const routesStudent = require('./routes/studentRoutes');
+const serviceStudent = require('./services/studentService');
 // require('dotenv').config()
 
 
 app = express();
 port = process.env.PORT || 4000;
+console.log('connected');
 app.listen(port);
 app.use(cors({ origin: '*' }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+console.log('before user');
 app.use('/user', routes);
-app.use('/add',routes);
-app.use('/',service)
+app.use('/add', routes);
+app.use('/addpayment', routespayment);
+app.use('/', service)
+app.use('/addStudent',routesStudent)
+console.log('before addpayment');
+//app.use('/addpayment', routespayment);
+//app.use('/',servicePayment);
+app.post('/add', routes)
+app.post('/addpayment', routespayment);
+app.post('/addStudent',routesStudent);
+console.log('before post addpayment');
 
-app.post('/add',routes)
-   
 
 console.log('todo list RESTful API server started on: ' + port);
