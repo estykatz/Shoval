@@ -52,6 +52,7 @@ export class PaymentComponent implements OnInit {
         this.myForm.reset();
       });
     }
+
   }
 }
 ///

@@ -36,9 +36,8 @@ export class RegistratioComponent implements OnInit {
       s.stLastName = this.myForm.controls.lastName.value;
       s.phone = this.myForm.controls.phone.value;
       s.identity = this.myForm.controls.identity.value;
-      s.PlaceOfStudy=this.myForm.controls.PlaceOfStudy.value;
-      s.SwimmingLevels=this.myForm.controls.level.value;
-      s.Debt=this.myForm.controls.
+      s.PlaceOfStudy = this.myForm.controls.PlaceOfStudy.value;
+      s.SwimmingLevels = this.myForm.controls.level.value;
     }
   }
 }

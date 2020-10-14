@@ -1,3 +1,5 @@
+import { TieredMenuSub } from 'primeng';
+
 export class Payment {
   FirstName: string;
   LastName: string;
@@ -5,8 +7,14 @@ export class Payment {
   PriceToStudent: number;
   Sum: number;
   WayofPayment: number;
+<<<<<<< HEAD
 
   // PaymentTransfer: number;  //  למה התכוונו התרגום זה העברה תשלום
+=======
+phon:string;
+  stadantname:string;// נראה לי שאנחנו צריכות להוסיף גם את זה  וגם נתון של הטלפון
+  //PaymentTransfer: number; // למה התכוונו התרגום זה העברה תשלום
+>>>>>>> eeb3fcc4cf7162206b8580e7764e6f599446ac49
 
   PaymentTransfer: boolean; // למה התכוונו התרגום זה העברה תשלום
 
@@ -24,5 +32,7 @@ export class Payment {
     this.date = date;
   }
 
-}
+  }
+
+
 
