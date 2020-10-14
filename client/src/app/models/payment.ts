@@ -1,9 +1,12 @@
+import { TieredMenuSub } from 'primeng';
+
 export class Payment {
   identity: string;
   PriceToStudent: number;
   Sum: number;
   WayofPayment: number;
-
+phon:string;
+  stadantname:string;// נראה לי שאנחנו צריכות להוסיף גם את זה  וגם נתון של הטלפון
   //PaymentTransfer: number; // למה התכוונו התרגום זה העברה תשלום
 
   PaymentTransfer: boolean; //למה התכוונו התרגום זה העברה תשלום
@@ -20,5 +23,7 @@ export class Payment {
     this.Date = date;
   }
 
-}
+  }
+
+
 

@@ -31,5 +31,6 @@ export class PaymentComponent implements OnInit {
       p.WayofPayment = this.myForm.controls.CardOrCash.value;
 
     }
+
   }
 }
