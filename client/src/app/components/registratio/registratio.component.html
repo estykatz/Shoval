@@ -1,6 +1,6 @@
 <form
     [formGroup]="myForm"
-    (submit)="addStudent()"
+    (submit)="addNewStudent()"
 >
     <h1 class="border1">פרטיים אישיים</h1>
     <fieldset>
@@ -64,6 +64,7 @@
                 <select
                     name="dd"
                     formControlName="hour"
+
                 >
                     <option value="1">16:05</option>
                     <option value="2">15:00</option>
@@ -94,7 +95,7 @@
                 <input
                     type="text"
                     class="form-control"
-                    formControlName="PlaseOfStudy"
+                    formControlName="PlaceOfStudy"
                 >
             </div>
             <div class="form-group">
@@ -102,6 +103,7 @@
                 <input
                     type="radio"
                     formControlName="hmo"
+                    checked="checked"
                 >
             </div>
         </div>
@@ -119,6 +121,13 @@
             <span *ngIf ="myForm.controls['identity'].errors?.IdentityError!=null">ת.ז שגויה</span>
             <span *ngIf ="myForm.controls['identity'].errors?.maxlength!=null">יש להקיש 9 ספרות</span>
         </div>
+        <div>
+          <label>הערות</label>
+          <input
+              type="text"
+              formControlName="Remarks"
+          >
+      </div>
     </fieldset>
     <input  type="submit" value="להרשמה" class="btn btn-primary">
 </form>

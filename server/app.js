@@ -22,13 +22,14 @@ app.use('/user', routes);
 app.use('/add', routes);
 app.use('/addpayment', routespayment);
 app.use('/', service)
-app.use('/addStudent',routesStudent)
+app.use('/student',routesStudent)
 console.log('before addpayment');
 //app.use('/addpayment', routespayment);
 //app.use('/',servicePayment);
 app.post('/add', routes)
 app.post('/addpayment', routespayment);
-app.post('/addStudent',routesStudent);
+console.log('before add student');
+app.post('/student',routesStudent);
 console.log('before post addpayment');
 
 

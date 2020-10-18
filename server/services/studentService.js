@@ -36,6 +36,7 @@ const createStudent = async (stud) => {
             let Debt = post['Debt'];
             let Discount = post['Discount'];
             let Remarks=post['Remarks'];
+            console.log('before insert');
             dbConfig.query("insert into Payments values('" + fname + "','" + lname + "','" + id + "','"+Phone+"','"+PlaceOfStudy+"','"+SwimmingLevels+"','"+Debt+"','"+Discount+"','"+Remarks+"')",
                 (err) => {
                     if (err) console.log(err)
