@@ -1,1 +1,119 @@
-<p>courses works!</p>
+<from>
+  //\\  [formGroup]="myForm"
+  /////(submit)="addStudent()"
+
+    <h1 class="border1"></h1>קורסים</h1>
+    <fieldset>
+        <div id="block_containel">
+            <div class="form-group">
+                <label>תאריך תחילת הקורס</label>
+                <input
+                    type="date"
+                    class="form-control"
+                   
+                    
+                >
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                <label>תאריך סיום הקורס</label>
+                <input
+                    type="date"
+                    class="form-control"
+                   
+                >
+            </div>
+        </div>
+        <br>
+        <div id="block_containel"></div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="from-group">
+            <label>שעה</label>
+            <input
+                type="hour"
+                class="form-control"
+               
+            >
+        </div>
+
+
+
+        <br>
+        <div id="block_containel">
+            <div class="form-group">
+                <label>יום</label>
+
+
+              <select
+                    name="dd"
+                    formControlName="day"
+                >
+                    <option value="1">ראשון</option>
+                    <option value="2">שני</option>
+                    <option value="3">רביעי</option>
+                    <option value="4">חמישי</option>
+                    <option value="5">שישי</option>
+                </select>
+
+
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                <label>שעה</label>
+
+
+                <select
+                    name="dd"
+                    formControlName="hour"
+                >
+                    <option value="1">16:05</option>
+                    <option value="2">15:00</option>
+                    <option value="3">20:00</option>
+                    <option value="4">17:00</option>
+                    <option value="5">שישי</option>
+                </select>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                <label>רמת לימוד</label>
+                <select
+                    name="select1"
+                    formControlName="level"
+                >
+                    <option value="1">מתחילים</option>
+                    <option value="2">שיפור</option>
+                    <option value="3">מתקדמים</option>
+                </select>
+
+
+            </div>
+        </div>
+        <br>
+        <div id="block_containel">
+            <div class="form-group">
+                <label>מקום לימודים</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    formControlName="PlaseOfStudy"
+                >
+            </div>
+            <div class="form-group">
+                <label>חבר בקופת חולים</label>
+                <input
+                    type="radio"
+                    formControlName="hmo"
+                >
+            </div>
+        </div>
+      
+            
+       
+        <input
+            type="submit"
+            class="btn btn-primry"
+        >
+    </fieldset>
+
+
+</from>
