@@ -34,7 +34,8 @@ const createPayment = async (pay) => {
             let sum = post['Sum'];
             let Way = 'ashrai';
             let paymenttransfer=0;
-            dbConfig.query("insert into Payments values('" + fname + "','" + lname + "','" + Phone + "','"+Price+"','"+date+"','"+sum+"','"+Way+"','"+paymenttransfer+"')",
+            let day=convert(varchar,date,105)
+            dbConfig.query("insert into Payments values('" + fname + "','" + lname + "','" + Phone + "','"+Price+"','"+day+"','"+sum+"','"+Way+"','"+paymenttransfer+"')",
                 (err) => {
                     if (err) console.log(err)
                     //  res.send(recordset);

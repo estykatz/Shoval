@@ -21,8 +21,8 @@ console.log('before user');
 app.use('/user', routes);
 app.use('/add', routes);
 app.use('/addpayment', routespayment);
-app.use('/', service)
 app.use('/student',routesStudent)
+app.use('/', service)
 console.log('before addpayment');
 //app.use('/addpayment', routespayment);
 //app.use('/',servicePayment);

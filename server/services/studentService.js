@@ -19,25 +19,25 @@ const createStudent = async (stud) => {
             let post = {
                 stFirstName: stud.stFirstName,
                 stLastName: stud.stLastName,
-               identity:stud.identity,
-                phone:stud.phone,
-                PlaceOfStudy:stud.PlaceOfStudy,
+                identity: stud.identity,
+                phone: stud.phone,
+                PlaceOfStudy: stud.PlaceOfStudy,
                 SwimmingLevels: stud.SwimmingLevels,
                 Debt: stud.Debt,
                 Discount: stud.Discount,
-                Remarks:stud.Remarks
+                Remarks: stud.Remarks
             };
             let fname = post['stFirstName'];
             let lname = post['stLastName'];
-            let id=post['identity'];
-            let Phone=post['phone'];
-            let PlaceOfStudy=post['PlaceOfStudy'];
-            let SwimmingLevels=post['SwimmingLevels'];
+            let id = post['identity'];
+            let Phone = post['phone'];
+            let PlaceOfStudy = post['PlaceOfStudy'];
+            let SwimmingLevels = post['SwimmingLevels'];
             let Debt = post['Debt'];
             let Discount = post['Discount'];
-            let Remarks=post['Remarks'];
+            let Remarks = post['Remarks'];
             console.log('before insert');
-            dbConfig.query("insert into Payments values('" + fname + "','" + lname + "','" + id + "','"+Phone+"','"+PlaceOfStudy+"','"+SwimmingLevels+"','"+Debt+"','"+Discount+"','"+Remarks+"')",
+            dbConfig.query("insert into Student values(N'" + fname + "',N'" + lname + "','" + id + "','" + Phone + "',N'" + PlaceOfStudy + "','" + SwimmingLevels + "','" + Debt + "','" + Discount + "',N'" + Remarks + "')",
                 (err) => {
                     if (err) console.log(err)
                     //  res.send(recordset);
@@ -50,4 +50,5 @@ const createStudent = async (stud) => {
 
 };
 module.exports = {
-    createStudent}
+    createStudent
+}

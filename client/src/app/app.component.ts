@@ -20,7 +20,7 @@ export class AppComponent {
     this.userService.getUser()
       .subscribe((user) => {
         // tslint:disable-next-line: no-debugger
-        debugger;
+      
       });
   }
   startre() {
