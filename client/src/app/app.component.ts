@@ -12,6 +12,7 @@ export class AppComponent {
   visibleattendance = false;
   visibleuser = false;
   regist = false;
+  course = false;
   constructor(private userService: UserService) {
   }
 
@@ -20,13 +21,15 @@ export class AppComponent {
     this.userService.getUser()
       .subscribe((user) => {
         // tslint:disable-next-line: no-debugger
-      
+
       });
   }
   startre() {
     this.regist = true;
   }
-
+  startc() {
+    this.course = true;
+  }
   startb() {
     this.visibleuser = true;
   }

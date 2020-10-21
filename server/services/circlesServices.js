@@ -20,7 +20,7 @@ const createUser = async (course) => {
                 console.log('connected');
                 let post={
                    
-                    dateStart:dateStart.course,
+                    dateStart:course.dateStart,
                     dateFinish:dateFinish.course,
                     day:day.course,
                     hour:hour.course,

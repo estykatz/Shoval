@@ -34,12 +34,15 @@ const createPayment = async (pay) => {
             let sum = post['Sum'];
             let Way = 'ashrai';
             let paymenttransfer=0;
-            let day=convert(varchar,date,105)
+            let day=new Date().getTime();
+            
+            console.log(day);
             dbConfig.query("insert into Payments values('" + fname + "','" + lname + "','" + Phone + "','"+Price+"','"+day+"','"+sum+"','"+Way+"','"+paymenttransfer+"')",
-                (err) => {
+            (err) => {
                     if (err) console.log(err)
                     //  res.send(recordset);
                 });
+               
         });
     }
     catch (error) {
