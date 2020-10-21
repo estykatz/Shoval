@@ -7,6 +7,8 @@ const routespayment = require('./routes/paymentRoutes');
 const servicePayment = require('./services/paymentService');
 const routesStudent = require('./routes/studentRoutes');
 const serviceStudent = require('./services/studentService');
+const routesCourse =require('./routes/coursesRoutes');
+const serviceCourses= require('./services/courcesServices');
 // require('dotenv').config()
 
 
@@ -21,7 +23,8 @@ console.log('before user');
 app.use('/user', routes);
 app.use('/add', routes);
 app.use('/addpayment', routespayment);
-app.use('/student',routesStudent)
+app.use('/student',routesStudent);
+app.use('/addcourse',routesCourse);
 app.use('/', service)
 console.log('before addpayment');
 //app.use('/addpayment', routespayment);
@@ -31,6 +34,6 @@ app.post('/addpayment', routespayment);
 console.log('before add student');
 app.post('/student',routesStudent);
 console.log('before post addpayment');
-
+app.post('/addcourse',routesCourse);
 
 console.log('todo list RESTful API server started on: ' + port);

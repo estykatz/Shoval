@@ -1,26 +1,22 @@
 import { Time } from '@angular/common';
 
-export class Coures {
+export class Courses {
   price: number;
   DateStart: Date;
   DateFinish: Date;
   Day: Date;
   Hour: Time;
+  Level: string;
 
 
-<<<<<<< HEAD
-  constructor(price?: number, start?: Date, finish?: Date, day?: Date, hour?: Time) {
-=======
-  constructor(price?: number, start?: Date, finish?: Date, day?: Date,hour?:Time) {
->>>>>>> 2b202c5e257a61fb01f875675a946732dc49113b
+  constructor(price?: number, start?: Date, finish?: Date, day?: Date, hour?: Time, level?: string) {
+
     this.price = price;
     this.DateStart = start;
     this.DateFinish = finish;
     this.Day = day;
-<<<<<<< HEAD
     this.Hour = hour;
-=======
-    this.Hour=hour;
->>>>>>> 2b202c5e257a61fb01f875675a946732dc49113b
+    this.Hour = hour;
+    this.Level = level;
   }
 }

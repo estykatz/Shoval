@@ -1,6 +1,6 @@
 const sql = require("mssql");
 
-const createUser = async (course) => {
+const createCourse = async (course) => {
     try {
         let sql = require("mssql/msnodesqlv8");
         let dbConfig = new sql.ConnectionPool({
@@ -21,10 +21,11 @@ const createUser = async (course) => {
                 let post={
                    
                     dateStart:course.dateStart,
-                    dateFinish:dateFinish.course,
-                    day:day.course,
-                    hour:hour.course,
-                    price:price.course
+                    dateFinish:course.dateFinish,
+                    day:course.day,
+                    hour:course.hour,
+                    price:course.price,
+                    level:course.level
 
                  };   
                  let dateStart=post['dateStart'] ;
