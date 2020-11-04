@@ -1,4 +1,4 @@
-<form  [formGroup] = "myForm" (submit)="addNewPayment()">
+<form  [formGroup] = "myForm" (submit)="addNewPayment(shoval.checked,mapalim.checked,card.checked,cash.checked)">
     <h1 class="border1">תשלומים</h1>
     <br>
     <fieldset>
@@ -55,17 +55,17 @@
         <div>
           <div style="text-align:center;" class="form-group">
             <label >אופן התשלום:</label>
-            <input type="radio" name="CardOrCash"  formControlName = "CardOrCash">אשראי&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="CardOrCash" #card>אשראי&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br>
-            <input type="radio" name="CardOrCash"  formControlName = "CardOrCash">מזומן
+            <input type="radio" name="CardOrCash" #cash >מזומן
           </div>
         </div>
         <div>
           <div style="text-align:center;" class="form-group">
             <label >התשלום מיועד:</label>
-            <input type="radio" name="shoval" formControlName = "shoval">שובל&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="shovalOrMapalim" #shoval>שובל&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br>
-            <input type="radio" name="mapalim"  formControlName = "mapalim">מפלים
+            <input type="radio" name="shovalOrMapalim" #mapalim>מפלים
           </div>
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

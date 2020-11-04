@@ -7,7 +7,17 @@
                 class="a"
                 (click)="startb()"
             >
-                לכניסה למערכת
+                משתמש חדש
+            </a>
+        </li>
+        <li class="nav-link">
+            <a
+                [routerLink]="['/enter']"
+                routerLinkActive="activelink"
+                class="a"
+                (click)="startenter()"
+            >
+                משתמש קים
             </a>
         </li>
         <li class="nav-link">
@@ -54,15 +64,19 @@
 </nav>
 
 
+
 <div>
     <div
         class="content"
         role="main"
-        *ngIf="visible == false && visibleattendance==false && visibleuser==false && regist==false && course==false"
+        *ngIf="visible == false && visibleattendance==false && visibleuser==false && regist==false && course==false
+        && enter==false"
     >
 
 
+
         <h1>חוגי שחיה שובל</h1>
+        <h1>message from service{{name}}</h1>
     </div>
     <div *ngIf="visibleuser">
         <app-new-user></app-new-user>
@@ -73,6 +87,9 @@
     <div *ngIf="regist">
         <app-registratio></app-registratio>
     </div>
+    <div *ngIf="enter">
+        <app-users></app-users>
+    </div>
     <div *ngIf="visibleattendance">
         <app-attendance></app-attendance>
     </div>
@@ -82,6 +99,7 @@
 </div>
 
 
+
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
@@ -89,6 +107,7 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
 
 
 <!-- <router-outlet></router-outlet> -->

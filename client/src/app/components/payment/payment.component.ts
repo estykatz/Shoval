@@ -27,7 +27,7 @@ export class PaymentComponent implements OnInit {
       shoval: new FormControl('')
     });
   }
-  addNewPayment() {
+  addNewPayment(shoval, mapalim, card, cash) {
     console.log('addnew');
 
     if (this.myForm.valid) {
@@ -39,6 +39,18 @@ export class PaymentComponent implements OnInit {
       p.PriceToStudent = this.myForm.controls.price.value;
       p.date = this.myForm.controls.date.value;
       p.Sum = this.myForm.controls.price.value;
+      if (shoval) {
+        p.PaymentTransfer = true;
+      }
+      if (mapalim) {
+        p.PaymentTransfer = false;
+      }
+      if (card) {
+        p.WayofPayment = 1;
+      }
+      if (cash) {
+        p.WayofPayment = 0;
+      }
       // p.WayofPayment = this.myForm.controls.CardOrCash.value;
       // if (this.myForm.controls.shoval.touched) {
       //   p.PaymentTransfer = this.myForm.controls.shoval.value;

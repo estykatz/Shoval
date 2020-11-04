@@ -12,6 +12,15 @@ const createPayment = async (pay) => {
                 useUTC: true
             },
         });
+        dbConfig.connect().then(()=>{
+            let sqlquery=`select * from Student where Lastname =N+${pay.LastName} and PhoneNumber =${pay.PhoneNumber} and FirstName!= N${pay.FirstName}`;
+            dbConfig.query(sqlquery,
+            (err) => {
+                if (err) console.log(err)
+                //  res.send(recordset);
+            });
+            // s.Lastname=N'לב' and s.PhoneNumber='035706707' and s.FirstName!=N'ציפורה'")
+        })
         dbConfig.connect().then(() => {//function (err) {
 
             console.log('connected');
@@ -32,8 +41,14 @@ const createPayment = async (pay) => {
             let Price=post['PriceToStudent'];
             let date=post['Today'];
             let sum = post['Sum'];
-            let Way = 'ashrai';
-            let paymenttransfer=0;
+            let Way;
+            if(post['WayofPayment']==1){
+                Way='אשראי';
+            }
+            if(post['WayofPayment']==0){
+                Way='מזומן';
+            }
+            let paymenttransfer=post['PaymentTransfer'];
             let day=new Date().getTime();
             
             console.log(day);
@@ -44,11 +59,15 @@ const createPayment = async (pay) => {
                 });
                
         });
+        
     }
     catch (error) {
         console.log(error);
     }
 
 };
+function SistersOrBrothers(student){
+
+}
 module.exports = {
     createPayment}
