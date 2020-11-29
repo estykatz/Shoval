@@ -17,10 +17,10 @@ export class Payment {
 
   PaymentTransfer: boolean; // למה התכוונו התרגום זה העברה תשלום
 
-  date: Date;
+  datee: Date;
 
 
-  constructor(fn?: string, ln?: string, phone?: string, price?: number, sum?: number, way?: number, pay?: boolean, date?: Date) {
+  constructor(fn?: string, ln?: string, phone?: string, price?: number, sum?: number, way?: number, pay?: boolean, datee?: Date) {
     this.FirstName = fn;
     this.LastName = ln;
     this.PhoneNumber = phone;
@@ -28,7 +28,7 @@ export class Payment {
     this.Sum = sum;
     this.WayofPayment = way;
     this.PaymentTransfer = pay;
-    this.date = date;
+    this.datee = datee;
   }
 
 }

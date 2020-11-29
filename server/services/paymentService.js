@@ -6,7 +6,7 @@ const createPayment = async (pay) => {
             LastName: pay.LastName,
             PhoneNumber: pay.PhoneNumber,
             PriceToStudent: pay.PriceToStudent,
-            Today: pay.Date,
+            Today: pay.datee,
             Sum: pay.Sum,
             WayofPayment: pay.WayofPayment,
             PaymentTransfer: pay.PaymentTransfer
@@ -36,10 +36,10 @@ const createPayment = async (pay) => {
                 useUTC: true
             },
         });
+        //select count(*) from Student where Lastname =N'"+lname+"' and PhoneNumber ='"+Phone+"' and FirstName!= N'"+fname+"'
         dbConfig.connect().then(()=>{
-            let sqlquery="select * from Student where Lastname =N'"+lname+"' and PhoneNumber ='"+Phone+"' and FirstName!= N'"+fname+"'";
+            let sqlquery="declare @dayy int; select @dayy=count(*) from Student where Lastname =N'"+lname+"' and PhoneNumber ='"+Phone+"' and FirstName!= N'"+fname+"'"
             dbConfig.query(sqlquery,
-        
             (err) => {
                 if (err) console.log(err)
                 //  res.send(recordset);
@@ -53,9 +53,15 @@ const createPayment = async (pay) => {
         dbConfig.connect().then(() => {//function (err) {
             console.log('connected');
             
-            
-           
-            dbConfig.query("insert into Payments values('" + fname + "','" + lname + "','" + Phone + "','"+Price+"','"+datepay+"','"+sum+"','"+Way+"','"+paymenttransfer+"')",
+            console.log(fname);
+            console.log(lname);
+            console.log(Phone);
+            console.log(Price);
+            console.log(datepay);
+            console.log(sum);
+            console.log(Way);
+            console.log(paymenttransfer);
+            dbConfig.query("insert into Payments values(N'" + fname + "',N'" + lname + "','" + Phone + "','"+Price+"','"+datepay+"','"+sum+"',N'"+Way+"',N'"+paymenttransfer+"')",
             
             (err) => {
                     if (err) console.log(err)
