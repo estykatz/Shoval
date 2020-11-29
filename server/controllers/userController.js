@@ -11,7 +11,14 @@ const getUser = async (req, res) => {
         return res.status(500).send("Internal Server Error");
     }
 }
- function AddUser(user) {
+const CheckUser=async(req, res)=> {
+    let name = req.params.user;
+    //let pass = req.params.user.password;
+    console.log(name);
+    usersService.checkIfTheRightUser(name);
+    
+}
+function AddUser(user) {
     // console.log('success');
     // let sql = require("mssql/msnodesqlv8");
     // var con = Connection.connection();
@@ -23,10 +30,10 @@ const getUser = async (req, res) => {
     //         if (err) { return false; }
     //         return sql;
     //     })
-   // })
+    // })
     // let c = myConnect.connection;
     // console.log(c);
-      usersService.createUser(user);
+    usersService.createUser(user);
     // myConnect.connect(function (error) {
     //     if (error) {
     //         console.log("Error while connecting to database")
@@ -57,5 +64,5 @@ const getUser = async (req, res) => {
 
 
 module.exports = {
-    getUser, AddUser
+    getUser, AddUser, CheckUser
 }

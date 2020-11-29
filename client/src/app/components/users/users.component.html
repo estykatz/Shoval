@@ -1,17 +1,26 @@
-<form [formGroup]="myForm">
-  <fieldset>
-    <h1>
-     כניסה למערכת
-    </h1>
-    <div>
-<label>שם משתמש</label>
-<input type="text" class="form-control"formControlName="userName">
+<form
+    [formGroup]="myForm"
+    (submit)="CheckIftheRightUser()"
+>
+    <fieldset>
+        <h1>כניסה למערכת</h1>
+        <div>
+            <label>שם משתמש</label>
+            <input
+                type="text"
+                class="form-control"
+                formControlName="userName"
+            >
 
-</div>
-<div>
-  <label>סיסמא</label>
-  <input type="text" class="form-control"
-  formControlName="password">
-  </div>
-  </fieldset>
+        </div>
+        <div>
+            <label>סיסמא</label>
+            <input
+                type="text"
+                class="form-control"
+                formControlName="password"
+            >
+        </div>
+    </fieldset>
+    <input type="submit">
 </form>

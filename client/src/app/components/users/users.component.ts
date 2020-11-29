@@ -17,16 +17,17 @@ export class UsersComponent implements OnInit {
       userName: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
     });
-    // CheckIftheRightUser(){
-    //   if (this.myForm.valid) {
-    //     const user = new NewUser();
-    //     user.userName = this.myForm.controls.userName.value;
-    //     user.password = this.myForm.controls.password.value;
-    //     this.userService.getUser(user).subscribe(ans => {
-    //       this.myForm.reset();
-    //     })
-    //   }
-    // }
   }
+    CheckIftheRightUser(){
+      if (this.myForm.valid) {
+        const user = new NewUser();
+        user.userName = this.myForm.controls.userName.value;
+        user.password = this.myForm.controls.password.value;
+        this.userService.checkuser(user).subscribe(ans => {
+          this.myForm.reset();
+        });
+      }
+    }
+
 
 }
