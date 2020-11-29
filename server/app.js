@@ -22,6 +22,7 @@ app.use(bodyParser.urlencoded());
 console.log('before user');
 app.use('/user', routes);
 app.use('/add', routes);
+app.use('/checkuser',routes);
 app.use('/addpayment', routespayment);
 app.use('/student',routesStudent);
 app.use('/addcourse',routesCourse);
@@ -35,5 +36,5 @@ console.log('before add student');
 app.post('/student',routesStudent);
 console.log('before post addpayment');
 app.post('/addcourse',routesCourse);
-
+app.get('/checkuser/:user',routes)
 console.log('todo list RESTful API server started on: ' + port);
