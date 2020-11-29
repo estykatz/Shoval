@@ -37,7 +37,9 @@ export class PaymentComponent implements OnInit {
       p.LastName = this.myForm.controls.lastName.value;
       p.PhoneNumber = this.myForm.controls.phone.value;
       p.PriceToStudent = this.myForm.controls.price.value;
-      p.date = this.myForm.controls.date.value;
+      p.datee = this.myForm.controls.date.value;
+      console.log(p.datee);
+
       p.Sum = this.myForm.controls.price.value;
       if (shoval) {
         p.PaymentTransfer = true;
