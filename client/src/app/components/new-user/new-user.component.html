@@ -1,4 +1,4 @@
-<form  [formGroup] = "myForm" (submit)="addNewUser()">
+ <form  [formGroup] = "myForm" (submit)="addNewUser()">
   <h1 class="border1">הרשמה</h1>
   <fieldset>
       <div class="form-group">
@@ -9,11 +9,12 @@
       <div class="form-group">
         <label>מייל</label>
         <input type="email" class="form-control" formControlName = "email">
-        <span *ngIf = "myForm.controls['name'].errors?.required!=null">שדה זה נדרש</span>
+        <span *ngIf = "myForm.controls['email'].errors?.required!=null">שדה זה נדרש</span>
       </div>
       <div class="form-group">
         <label>סיסמא</label>
         <input type="password" class="form-control" formControlName = "password">
+        <span *ngIf = "myForm.controls['password'].errors?.minLength!=null">סיסמא חייבת להיות לפחות בת 6 תווים</span>
       </div>
       <div class="form-group">
         <label>אימות סיסמא</label>

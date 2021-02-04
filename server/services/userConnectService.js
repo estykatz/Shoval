@@ -51,7 +51,7 @@ const createUser = async (user) => {
         console.log(error);
     }
 }
-const checkIfTheRightUser = async (name) => {
+const checkIfTheRightUser = async (user) => {
     try {
         let sql = require("mssql/msnodesqlv8");
         let dbConfig = new sql.ConnectionPool({
@@ -65,27 +65,46 @@ const checkIfTheRightUser = async (name) => {
                 useUTC: true
             },
         });
-        dbConfig.connect().then(() => {
-            console.log('connected');
-            dbConfig.query("select * from Users where UserName=N'" + name + "'",
-                (err) => {
-                    if (err) {
-                        return false;
-                    }
+        console.log('connected');
+        let post = {
+            userName: user.userName,
+            password: user.password,
+        };
+        let name = post['userName'];
+        let pass = post['password'];
+        let connection = await dbConfig.connect()//.then(() => {
+        let rightpass =await connection.request().query("select * from Users where UserName=N'" + name + "'and password=N'" + pass + "'")
+        console.log(rightpass.recordset.length);
+        // console.log(rightpass.recordset.length);
+        // let a=rightpass.recordset.length;
+        // console.log(a);
+        // Number(a);
+        if(rightpass.recordset.length>0)
+        {
+            return true;
+        }
+        
+        return false;
+        // if (rightpass.recordset.length!=0) {
+           
+        // }
+        // if(rightpass.recordset.length==0) {
+        //     console.log("jkjkjkjkjkjk");
+        //     return false;
+        // }
+        // dbConfig.query("select * from Users where UserName=N'" + name + "'and password=N'" + pass + "'",
+        //     (err) => {
+        //         if (err) {
+        //             return false;
+        //         }
 
-                    else {
-                        return true;
-                    }
+        //     })
 
-                })
-
-
-        });
     }
-    catch {
-
+    catch (error) {
+        console.log(error);
     }
 }
 module.exports = {
-    createUser
+    createUser, checkIfTheRightUser
 }

@@ -30,9 +30,9 @@
         <div id="block_containel">
             <div class="form-group">
                 <label>יום</label>
+<input type="text" class="form-control" formControlName="day">
 
-
-              <select
+              <!-- <select
                     name="dd"
                     formControlName="day"
 
@@ -42,25 +42,24 @@
                     <option value="3">רביעי</option>
                     <option value="4">חמישי</option>
                     <option value="5">שישי</option>
-                </select>
+                </select> -->
 
 
             </div>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <div class="form-group">
                 <label>שעה</label>
-
-
-                <select
+                <input type="time"class="form-control" formControlName = "hour">
+                <!-- <select
                     name="dd"
                     formControlName="hour"
                 >
-                    <option value="1">16:05</option>
+                    <option value="1" id="a"><span >16:05</span></option>
                     <option value="2">15:00</option>
                     <option value="3">20:00</option>
                     <option value="4">17:00</option>
-                    <option value="5">שישי</option>
-                </select>
+                    <option value="5">18:30</option>
+                </select> -->
             </div>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <div class="form-group">
@@ -68,6 +67,7 @@
                 <select
                     name="select1"
                     formControlName="level"
+                    (change)="selectOption($event.target.value)"
                 >
                     <option value="1">מתחילים</option>
                     <option value="2">שיפור</option>

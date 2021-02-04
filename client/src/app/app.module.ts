@@ -13,6 +13,10 @@ import { RegistratioComponent } from './components/registratio/registratio.compo
 import { NewUserComponent } from './components/new-user/new-user.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { UsersComponent } from './components/users/users.component';
+import { PersonalCardComponent } from './components/personal-card/personal-card.component';
+import { AllStudentsComponent } from './components/all-students/all-students.component';
+import { HomeComponent } from './components/home/home.component';
+import { EmailComponent } from './components/email/email.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { UsersComponent } from './components/users/users.component';
     RegistratioComponent,
     NewUserComponent,
     CoursesComponent,
-    UsersComponent
+    UsersComponent,
+    PersonalCardComponent,
+    AllStudentsComponent,
+    HomeComponent,
+    EmailComponent
   ],
   imports: [
     BrowserModule,

@@ -19,14 +19,12 @@ const createCourse = async (course) => {
 
             console.log('connected');
             let post = {
-
-                dateStart: course.dateStart,
-                dateFinish: course.dateFinish,
-                day: course.day,
-                hour: course.hour,
+                dateStart: course.DateStart,
+                dateFinish: course.DateFinish,
+                day: course.Day,
+                hour: course.Hour,
                 price: course.price,
-                level: course.level
-
+                level: course.Level
             };
             let dateStart = post['dateStart'];
             let dateFinish = post['dateFinish'];
@@ -34,10 +32,12 @@ const createCourse = async (course) => {
             let hour = post['hour'];
             let price = post['price'];
             let level = post['level'];
+            console.log(dateStart);
+            console.log(dateFinish);
             //  let req= new sql.Request();
             //"insert into Users values('rrr','11','fff',0)"
             //`insert into Users values(${user.userName},${user.password},${user.email},${user.userAdmin})
-            dbConfig.query("insert into Course values('" + dateStart + "','" + dateFinish + "','" + day + "','" + hour + "','" + price + "','" + level + "')",
+            dbConfig.query("insert into Course values('" + dateStart + "','" + dateFinish + "',N'" + day + "','" + hour + "','" + price + "','" + level + "')",
                 (err) => {
                     if (err) console.log(err)
                     //  res.send(recordset);

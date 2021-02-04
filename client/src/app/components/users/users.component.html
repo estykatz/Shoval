@@ -11,7 +11,6 @@
                 class="form-control"
                 formControlName="userName"
             >
-
         </div>
         <div>
             <label>סיסמא</label>
@@ -23,4 +22,5 @@
         </div>
     </fieldset>
     <input type="submit">
+    <div id="error" *ngIf ="!right">השם משתמש או הסיסמא שגויים</div>
 </form>

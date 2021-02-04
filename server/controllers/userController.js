@@ -11,58 +11,25 @@ const getUser = async (req, res) => {
         return res.status(500).send("Internal Server Error");
     }
 }
-const CheckUser=async(req, res)=> {
-    let name = req.params.user;
-    //let pass = req.params.user.password;
-    console.log(name);
-    usersService.checkIfTheRightUser(name);
-    
+const CheckUser = async (req, res) => {
+    try {
+        const user = req.body;
+        console.log(user);
+        let rightuser = await usersService.checkIfTheRightUser(user);
+        console.log(rightuser);
+        return res.status(200).json(rightuser);
+    }
+    catch (err) {
+        return res.status(500).send("Internal Server Error - try custom message");
+    }
+    //   return usersService.checkIfTheRightUser(user);
+
 }
-function AddUser(user) {
-    // console.log('success');
-    // let sql = require("mssql/msnodesqlv8");
-    // var con = Connection.connection();
-    // con.connect(function (err) {
-    //     if (err) throw err;
-    //     console.log('connected');
-    //     var insertToSql = `insert into Users values(${nu.userName},${nu.password},${nu.email},${nu.userAdmin})`;
-    //     con.query(sql, function (err) {
-    //         if (err) { return false; }
-    //         return sql;
-    //     })
-    // })
-    // let c = myConnect.connection;
-    // console.log(c);
+const AddUser = (req, res) => {
+    console.log('חחח');
+    let user = req.body;
     usersService.createUser(user);
-    // myConnect.connect(function (error) {
-    //     if (error) {
-    //         console.log("Error while connecting to database")
-    //     }
-    //     else {
-    //         console.log('connected')
-    //     }
-    // });
 }
-//  c.request.query("select * from Student where FirstName='chana'", function (err, recordset) {
-//         if (err) console.log(err)
-//         res.send(recordset);
-
-// });
-//   var request = new connect.sql.Request();
-//   request.query("insert into Users values(UserName,Password,email)", function (err, recordset) {
-
-
-//         if (err) console.log(err)
-
-//         // send records as a response
-//         res.send(recordset);
-
-//     });
-//};
-
-//req.query("insert into Users values(UserName,Password,email)")
-
-
 module.exports = {
     getUser, AddUser, CheckUser
 }

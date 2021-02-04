@@ -1,91 +1,47 @@
-<form
-    [formGroup]="myForm"
-    (submit)="addNewStudent()"
->
+<form [formGroup]="myForm" (submit)="addNewStudent(hmo.checked)">
     <h1 class="border1">פרטיים אישיים</h1>
-    <fieldset>
+    <br>
+    <fieldset class="form-containel">
         <div id="block_containel">
             <div class="form-group">
                 <label>שם פרטי</label>
-                <input
-                    type="text"
-                    class="form-control"
-                    formControlName="firstname"
-                >
+                <input type="text" class="form-control" formControlName ="firstname" id="fname">
             </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <div class="form-group">
                 <label>שם משפחה</label>
                 <input
                     type="text"
                     class="form-control"
                     formControlName="lastName"
+                    id="lname"
                 >
             </div>
         </div>
         <br>
-        <div id="block_containel"></div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div id="block_containel">
         <div class="from-group">
             <label>טלפון</label>
             <input
                 type="text"
                 class="form-control"
                 formControlName="phone"
+                (keydown)="PhoneNumber()"
+                id="phonenumber"
             >
+            <select>
+            <option *ngFor ="let phone of phoneArray">{{phone.PhoneNumber}}</option>
+        </select>
         </div>
-
-
-
-        <br>
-        <div id="block_containel">
-            <div class="form-group">
-                <label>יום</label>
-
-
-                <select
-                    name="dd"
-                    formControlName="day"
-                >
-                    <option value="1">ראשון</option>
-                    <option value="2">שני</option>
-                    <option value="3">רביעי</option>
-                    <option value="4">חמישי</option>
-                    <option value="5">שישי</option>
-                </select>
-
-
-            </div>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <div class="form-group">
-                <label>שעה</label>
-
-
-                <select
-                    name="dd"
-                    formControlName="hour"
-
-                >
-                    <option value="1">16:05</option>
-                    <option value="2">15:00</option>
-                    <option value="3">20:00</option>
-                    <option value="4">17:00</option>
-                    <option value="5">שישי</option>
-                </select>
-            </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <div class="form-group">
                 <label>רמת לימוד</label>
                 <select
                     name="select1"
                     formControlName="level"
                 >
-                    <option value="1">מתחילים</option>
-                    <option value="2">שיפור</option>
-                    <option value="3">מתקדמים</option>
+                    <option *ngFor ="let i of levelsAndPrice" value="{{i.Level}}">{{i.Level}}</option>
                 </select>
-
-
             </div>
         </div>
         <br>
@@ -103,13 +59,13 @@
                 <input
                     type="radio"
                     formControlName="hmo"
-                    checked="checked"
+                    #hmo
                 >
             </div>
         </div>
         <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <div>
+        <div *ngIf ="hmo.checked">
             <label>ת.ז</label>
             <input
                 type="text"
@@ -121,13 +77,13 @@
             <span *ngIf ="myForm.controls['identity'].errors?.IdentityError!=null">ת.ז שגויה</span>
             <span *ngIf ="myForm.controls['identity'].errors?.maxlength!=null">יש להקיש 9 ספרות</span>
         </div>
-        <div>
+         <div>
           <label>הערות</label>
           <input
               type="text"
               formControlName="Remarks"
           >
-      </div>
+        </div>
     </fieldset>
     <input  type="submit" value="להרשמה" class="btn btn-primary">
 </form>

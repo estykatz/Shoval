@@ -11,6 +11,7 @@ import { PaymentsService } from 'src/app/services/payments.service';
 })
 export class PaymentComponent implements OnInit {
   myForm: FormGroup;
+  u: boolean;
   constructor(private paymentService: PaymentsService) { }
 
   ngOnInit(): void {
@@ -53,6 +54,7 @@ export class PaymentComponent implements OnInit {
       if (cash) {
         p.WayofPayment = 0;
       }
+
       // p.WayofPayment = this.myForm.controls.CardOrCash.value;
       // if (this.myForm.controls.shoval.touched) {
       //   p.PaymentTransfer = this.myForm.controls.shoval.value;
@@ -60,13 +62,32 @@ export class PaymentComponent implements OnInit {
       // if (this.myForm.controls.mapalim.touched) {
       //   p.PaymentTransfer = this.myForm.controls.mapalim.value;
       // }
-      console.log('paymentcomponent');
+
+
       this.paymentService.createPayment(p).subscribe(ans => {
+        console.log(ans);
 
         this.myForm.reset();
       });
     }
 
+
+  }
+
+  SisterAndBrother() {
+    if (this.myForm.controls.firstName.valid && this.myForm.controls.lastName.valid && this.myForm.controls.phone.valid) {
+      const p = new Payment();
+
+      p.FirstName = this.myForm.controls.firstName.value;
+      p.LastName = this.myForm.controls.lastName.value;
+      p.PhoneNumber = this.myForm.controls.phone.value;
+      this.paymentService.SisterandBrother(p).subscribe(ans => {
+        this.u = ans;
+      });
+      if (this.u) {
+        console.log('yes!!!!!!!!!!!!!!');
+      }
+    }
   }
 }
 ///
