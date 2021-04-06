@@ -77,3 +77,26 @@ input.ng-invalid.ng-touched{
     width: 80vw !important;
   }
 }
+h1{
+  color: deeppink;
+  text-align: center;
+}
+/* body{
+  text-align: center;
+  direction: center !important;
+} */
+.block_container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  overflow: auto;
+}
+/* input{
+  width: 200px;
+}
+#fname{
+  float: right;
+}
+#lname{
+  float: left;
+} */

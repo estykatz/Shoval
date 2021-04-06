@@ -10,16 +10,16 @@ import { LoginService } from 'src/app/services/login.service';
 export class HomeComponent implements OnInit, OnDestroy {
   loggedIn;
   subscribed;
-  isAdmin:Boolean;
-  data=true;
-  parentData:any;
-  constructor(private loginService: LoginService,private helpService:HelpService) { }
+  isAdmin: Boolean;
+  data = true;
+  parentData: any;
+  constructor(private loginService: LoginService, private helpService: HelpService) { }
 
   ngOnInit(): void {
     this.loggedIn = this.loginService.IsLogin;
     this.subscribed = this.loginService.loginchange.subscribe(val => this.loggedIn = val);
 
-    this.isAdmin=this.helpService.getRoleLogedIn();
+    this.isAdmin = this.helpService.getRoleLogedIn();
     console.log(this.isAdmin);
 
   }

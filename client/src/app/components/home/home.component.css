@@ -11,7 +11,7 @@
   border-radius: 0.5rem !important;
   color:#2cc4fc !important;
   background-color: rgb(223, 255, 236) !important;
-  
+
 
 
 }
@@ -27,7 +27,7 @@
   width: 100vw !important;height: 10vh !important;
 }
 .activelink1{
-  
+
 }
 .a{
   text-decoration: none !important;
@@ -39,7 +39,7 @@ body{
   background-repeat: no-repeat;
 }
 .li{
-  
+
 
 
 }
@@ -56,7 +56,7 @@ h1{
   opacity: 90%;
 
 
-  
+
 }
 .divh1{
   text-align: center !important;
@@ -74,7 +74,7 @@ h1{
   color:dodgerblue !important;
 }
 .backroundImage{
-  
+
   width: 40vw;
   opacity: 50%;
   background: url(../../../assets/stair-pool.jpg);

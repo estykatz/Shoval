@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EmailService } from 'src/app/services/email.service';
-import {Email} from 'src/app/models/email';
+import { Email } from 'src/app/models/email';
 import { passwordValidator } from 'src/app/validators/userpassword.validator';
 import { NewUsers } from 'src/app/models/new-users';
 import { UserService } from 'src/app/services/user.service';
@@ -14,7 +14,7 @@ import { HelpService } from "src/app/services/help.service";
 export class EmailComponent implements OnInit {
   myForm: FormGroup;
   email: string;
-  constructor(private emailService: EmailService,private userService:UserService,private helpService:HelpService) { }
+  constructor(private emailService: EmailService, private userService: UserService, private helpService: HelpService) { }
 
   ngOnInit(): void {
     // this.myForm = new FormGroup({
@@ -28,13 +28,13 @@ export class EmailComponent implements OnInit {
     }, passwordValidator(['password', 'rightpassword']));
   }
   sendEmail() {
-    const newemail=new NewUsers();
-      newemail.password = this.myForm.controls.password.value;
-      newemail.userName = this.myForm.controls.name.value;
-      newemail.userAdmin = 0;
-      newemail.email = this.myForm.controls.email.value;
-      newemail.email= this.myForm.controls.email.value;
-      this.emailService.addEmail(newemail).subscribe(ans=>{
+    const newemail = new NewUsers();
+    newemail.password = this.myForm.controls.password.value;
+    newemail.userName = this.myForm.controls.name.value;
+    newemail.userAdmin = 0;
+    newemail.email = this.myForm.controls.email.value;
+    newemail.email = this.myForm.controls.email.value;
+    this.emailService.addEmail(newemail).subscribe(ans => {
       console.log(ans);
       this.myForm.reset();
       this.addNewUser(newemail);
@@ -52,7 +52,7 @@ export class EmailComponent implements OnInit {
         this.myForm.reset();
         this.helpService.getAllUsers();
       });
-    //  this.router.navigate(['/enter']);
+      //  this.router.navigate(['/enter']);
     }
   }
 }

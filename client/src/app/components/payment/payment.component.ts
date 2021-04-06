@@ -15,8 +15,11 @@ import { Registratio } from 'src/app/models/registratio';
 export class PaymentComponent implements OnInit {
   myForm: FormGroup;
   u: boolean;
+
   student: Registratio;
   constructor(private paymentService: PaymentsService, private helpService: HelpService) { }
+
+
 
   ngOnInit(): void {
     this.student = this.helpService.getData();
@@ -88,41 +91,52 @@ export class PaymentComponent implements OnInit {
   }
 
   SisterAndBrother() {
+
     if (this.myForm.errors?.SandB) {
       console.log('yeshiiiiiiiii');
 
       // this.myForm.controls.firstName.valid && this.myForm.controls.lastName.valid && this.myForm.controls.phone.valid
-      const p = new Payment();
 
-      p.FirstName = this.myForm.controls.firstName.value;
-      p.LastName = this.myForm.controls.lastName.value;
-      p.PhoneNumber = this.myForm.controls.phone.value;
-      this.paymentService.SisterandBrother(p).subscribe(ans => {
-        console.log('ans');
-        console.log(ans);
+      if (this.myForm.controls.firstName.valid && this.myForm.controls.lastName.valid && this.myForm.controls.phone.valid) {
+        const p = new Payment();
 
-        this.u = ans;
+        p.FirstName = this.myForm.controls.firstName.value;
+        p.LastName = this.myForm.controls.lastName.value;
+        p.PhoneNumber = this.myForm.controls.phone.value;
+        this.paymentService.SisterandBrother(p).subscribe(ans => {
+
+          console.log('ans');
+          console.log(ans);
+
+          this.u = ans;
+          if (this.u) {
+            console.log('yes!!!!!!!!!!!!!!');
+          }
+        });
+
+
+
+        //   this.u = ans;
+        // });
         if (this.u) {
           console.log('yes!!!!!!!!!!!!!!');
         }
-      });
 
-
+      }
     }
   }
+  ///
+
+  // addNewUser() {
+  //   if (this.myForm.invalid) {
+  //     const u = new NewUser();
+  //     u.password = this.myForm.controls.password.value;
+  //     u.userName = this.myForm.controls.name.value;
+  //     u.userAdmin = 0;
+  //     u.email = this.myForm.controls.email.value;
+  //     this.userService.createUser(u).subscribe(ans => {
+
+  //       this.myForm.reset();
+  //     });
+
 }
-///
-
-// addNewUser() {
-//   if (this.myForm.invalid) {
-//     const u = new NewUser();
-//     u.password = this.myForm.controls.password.value;
-//     u.userName = this.myForm.controls.name.value;
-//     u.userAdmin = 0;
-//     u.email = this.myForm.controls.email.value;
-//     this.userService.createUser(u).subscribe(ans => {
-
-//       this.myForm.reset();
-//     });
-
-///

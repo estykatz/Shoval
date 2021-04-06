@@ -10,6 +10,8 @@ import { EventEmitter } from '@angular/core';
 import { Levels } from 'src/app/models/levels';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
+import { Courses } from 'src/app/models/coures';
 @Component({
   selector: 'app-registratio',
   templateUrl: './registratio.component.html',
@@ -26,10 +28,11 @@ export class RegistratioComponent implements OnInit {
   dataR: boolean;
   // @Input()
   student: any;
-
   //activeRoute:any;
   // @Output() myEvent = new EventEmitter<Registratio>();
   constructor(private studentService: StudentsService, private helpService: HelpService, private router: Router, private activeRoute: ActivatedRoute) { }
+
+
 
   ngOnInit(): void {
     this.getLevelandPrice();
@@ -75,16 +78,24 @@ export class RegistratioComponent implements OnInit {
     console.log(this.student);
 
   }
+  //   this.getLevelandPrice();
+  // }
 
   getLevelandPrice() {
     this.studentService.getLevel().subscribe(ans => {
       console.log(ans);
       this.levelsAndPrice = ans;
+
       console.log(this.levelsAndPrice);
 
     })
   }
   addNewStudent(hmo, boy, girl, payments) {
+
+    //   })
+    // }
+    // addNewStudent(hmo) {
+
     if (this.myForm.invalid) {
       //  this.myEvent.emit({
       const s = new Registratio();
@@ -107,11 +118,17 @@ export class RegistratioComponent implements OnInit {
       else { s.Discount = false; }
       if (boy) { s.BoyOrGirl = 0; }
       if (girl) { s.BoyOrGirl = 1; }
+      s.SwimmingLevels = this.myForm.controls.level.value;
+      s.Debt = 720;
+      if (hmo) { s.Discount = true; }
+      else { s.Discount = false; }
+      console.log('kjkjkj');
       s.Remarks = this.myForm.controls.Remarks.value;
       this.studentService.createStudent(s).subscribe(ans => {
         this.myForm.reset();
         this.helpService.getAllStudents();
       });
+
       console.log(s);
 
       this.helpService.setData(s);
@@ -131,4 +148,18 @@ export class RegistratioComponent implements OnInit {
   onChangeDay(day: string) {
     this.dayofweek = day;
   }
+
+
+  // PhoneNumber() {
+  //   const s = new Registratio();
+  //   s.PhoneNumber = this.myForm.controls.phone.value;
+  //   this.studentService.getPhone(s).subscribe(ans => {
+  //     console.log(ans);
+  //     this.phoneArray = ans;
+  //   })
+  // }
+  // onChangeDay(day: string) {
+  //   this.dayofweek = day;
+  // }
+
 }

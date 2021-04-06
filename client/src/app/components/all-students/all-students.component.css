@@ -3,7 +3,7 @@ table,th,td{
 }
 th, td {
   padding: 25px;
-  
+
 }
 th{
   background-color:  rgb(145, 187, 253);;
@@ -16,18 +16,18 @@ h1
 text-align: center;
 margin-top: 3vh !important;
 margin-bottom: 3vh !important;
-  
+
 }
 .btn-g{
   border-radius: 2rem;
   border: rgb(210, 250, 230) !important;
 
-  background: none !important;  
+  background: none !important;
   width: 3vw
   ;
   height: 3vw !important;
-  
-  
+
+
 }
 th
 {
@@ -35,7 +35,7 @@ th
   text-align: center !important;
 }
 .btn{
-  
+
   margin-left: 5vw !important;
   text-align: center !important;
   border-radius: 1rem !important;

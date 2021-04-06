@@ -1,45 +1,72 @@
-
 <div class=" card p-shadow-4 p-mt-6 p-mx-auto mb-2">
-<form  [formGroup] ="myForm">
-  <h1 class="border1">כרטיס תלמיד</h1>
-  <br>
-  <fieldset>
-      <div class="block_container">
-          <div class="form-group">
-              <label class="p-text-center">שם פרטי</label>
-              <input 
-              pInputText class="p-d-flex p-text-center p-jc-center form-control" 
+    <form [formGroup]="myForm">
+        <h1 class="border1">כרטיס תלמיד</h1>
+        <br>
+        <fieldset>
+            <div class="block_container">
+                <div class="form-group">
+                    <label class="p-text-center">שם פרטי</label>
+                    <input
+                        pInputText
+                        class="p-d-flex p-text-center p-jc-center form-control"
+                        type="text"
+                        class="form-control"
+                        formControlName="firstName"
+                    >
+                </div>
+                <div class="form-group">
+                    <label class="p-text-center">שם משפחה</label>
+                    <input
+                        pInputText
+                        class="p-d-flex p-text-center p-jc-center form-control"
+                        type="text"
+                        class="form-control"
+                        formControlName="lastName"
+                    >
 
-               type="text" class="form-control" formControlName = "firstName">
-          </div>
-          <div class="form-group">
-              <label class="p-text-center">שם משפחה</label>
-              <input
-              pInputText class="p-d-flex p-text-center p-jc-center form-control" 
 
-               type="text" class="form-control" formControlName = "lastName">
+                </div>
+            </div>
+            <br>
 
-          </div>
-      </div>
-      <br>
-      
-      <div class="form-group">
-        <label class="p-text-center">טלפון </label>
-        <input pInputText class="p-d-flex p-text-center p-jc-center form-control"  type="text" class="form-control" formControlName = "phone">
-      </div>
-      <div class="block_container ">
-          <div class="form-group">
-              <label class="p-text-center">לתשלום</label>
-              <input 
-              pInputText class="p-d-flex p-text-center p-jc-center form-control" 
-              type="text" class="form-control" formControlName = "debt" >
-          </div>
-          <div class="form-group">
-            <label class="p-text-center">חוב</label>
-            <input pInputText class="p-d-flex p-text-center p-jc-center form-control" 
-            type="text" class="form-control" formControlName = "discount" >
-        </div>
-      </div>
-  </fieldset>
-  <input type="submit" value="לתשלום" class="btn btn-primary">
-</form></div>
+
+            <div class="form-group">
+                <label class="p-text-center">טלפון</label>
+                <input
+                    pInputText
+                    class="p-d-flex p-text-center p-jc-center form-control"
+                    type="text"
+                    class="form-control"
+                    formControlName="phone"
+                >
+            </div>
+            <div class="block_container ">
+                <div class="form-group">
+                    <label class="p-text-center">לתשלום</label>
+                    <input
+                        pInputText
+                        class="p-d-flex p-text-center p-jc-center form-control"
+                        type="text"
+                        class="form-control"
+                        formControlName="debt"
+                    >
+                </div>
+                <div class="form-group">
+                    <label class="p-text-center">חוב</label>
+                    <input
+                        pInputText
+                        class="p-d-flex p-text-center p-jc-center form-control"
+                        type="text"
+                        class="form-control"
+                        formControlName="discount"
+                    >
+                </div>
+            </div>
+        </fieldset>
+        <input
+            type="submit"
+            value="לתשלום"
+            class="btn btn-primary"
+        >
+    </form>
+</div>

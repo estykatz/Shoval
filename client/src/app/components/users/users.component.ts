@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+<<<<<<< HEAD
 import { User } from 'src/app/models/user';
+=======
+import { User } from 'src/app/models/User';
+>>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
 import { UserService } from 'src/app/services/user.service';
 import { LoginService } from 'src/app/services/login.service';
 import { HelpService } from 'src/app/services/help.service';
@@ -14,10 +18,16 @@ import { Router } from '@angular/router';
 })
 export class UsersComponent implements OnInit {
   myForm: FormGroup;
+<<<<<<< HEAD
   right: User;
   logginid: any
   trueOrFalsePassword = true;
   constructor(private userService: UserService, private loginService: LoginService, private tokenStorageService: TokenStorageService, private helpService: HelpService,private route:Router) { }
+=======
+  right=true;
+  constructor(private userService: UserService) { }
+
+>>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
   ngOnInit(): void {
     this.myForm = new FormGroup({
       userName: new FormControl('', Validators.required),
@@ -27,13 +37,17 @@ export class UsersComponent implements OnInit {
   CheckIftheRightUser() {
 
     if (this.myForm.valid) {
+<<<<<<< HEAD
       console.log(this.right);
 
+=======
+>>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
       const user = new User();
       user.userName = this.myForm.controls.userName.value;
       user.password = this.myForm.controls.password.value;
 
       this.userService.checkuser(user).subscribe((ans) => {
+<<<<<<< HEAD
         this.right = ans;
         console.log(this.right[0]);
 
@@ -52,6 +66,19 @@ export class UsersComponent implements OnInit {
           this.trueOrFalsePassword = false;
         }
         this.myForm.reset();this.route.navigate(["allStudents"]);
+=======
+      this.right=ans;
+      console.log(this.right);
+
+       if(this.right)
+        {
+          console.log("yes!!!!!!!!!!!!right");
+        }
+        else{
+          console.log("no!!gghghg");
+        }
+        this.myForm.reset();
+>>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
       });
     }
   }

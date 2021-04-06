@@ -1,18 +1,13 @@
 const router = require('express').Router();
 
 const usersController = require('../controllers/userController');
+<<<<<<< HEAD
 router.get('/login',usersController.CheckUser);
 //router.get('/checkuser/:user',usersController.CheckUser);
+=======
+>>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
 router.get('', usersController.getUser);
+router.post('/login', usersController.CheckUser);
+router.post('/adduser',  usersController.AddUser);
 
-    
-    
-
-//router.get('', usersController.AddUser('tzipora','323','esrtr@gmail.com'));
-router.post('', (req, res) => {
-    let user = req.body;
-    console.log(user);
-    usersController.AddUser(user);
-    res.json(user);
-})
 module.exports = router;

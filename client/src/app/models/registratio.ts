@@ -12,7 +12,11 @@ export class Registratio {
 
 
   constructor(id?: string, stLast?: string, stFirst?: string, ph?: string, plas?: string, swimming?: string,
+<<<<<<< HEAD
               debt?: number, discount?: boolean,boyorgirl?:number, remarks?: string) {
+=======
+              debt?: number, discount?: boolean, remarks?: string) {
+>>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
     this.studentId = id;
     this.Lastname = stLast;
     this.FirstName = stFirst;

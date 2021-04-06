@@ -8,7 +8,8 @@ const getCourse=async(req,res)=>{
         return res.status(500).send("Internal Server Error");
     }
 }
-function addCourse(course){
+const addCourse=(req,res)=>{
+    let course=req.body;
     courseService.createCourse(course);
 }
 module.exports={

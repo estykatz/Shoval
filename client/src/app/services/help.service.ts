@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AllStudentsService } from './all-students.service';
+<<<<<<< HEAD
 import { Registratio } from '../models/registratio';
 import { NewUsers } from '../models/new-users';
 import { Observable } from 'rxjs';
@@ -8,12 +9,19 @@ import { PersonalCard } from '../models/personal-card';
 import { UserService } from './user.service';
 import { TokenStorageService } from "./token-storage.service";
 import { AllUsersComponent } from '../components/all-users/all-users.component';
+=======
+import {Registratio} from '../models/registratio';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import {PersonalCard} from '../models/personal-card';
+>>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
 
 @Injectable({
   providedIn: 'root'
 })
 export class HelpService {
   students: Array<Registratio>;
+<<<<<<< HEAD
   allUsers: Array<NewUsers>;
   isAdmin: any;
   private detail;
@@ -59,5 +67,15 @@ export class HelpService {
   }
   get allDetails() {
     return this.detail;
+=======
+  url = 'http://localhost:4000';
+  constructor(private http:HttpClient, private allStudentsService:AllStudentsService) { }
+  getAllStudents() {
+    this.allStudentsService.getAllStudents().subscribe(ans =>this.students = ans);
+  }
+  getDetails(student:Registratio):Observable<any>{
+    console.log(student);
+    return this.http.post<any>(`${this.url}/help/getdetails`,student);
+>>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
   }
 }
