@@ -29,16 +29,6 @@
 
 
                 >
-
-<form [formGroup]="myForm" (submit)="addNewStudent(hmo.checked)">
-    <h1 class="border1">פרטיים אישיים</h1>
-    <br>
-    <fieldset class="form-containel">
-        <div id="block_containel">
-            <div class="form-group">
-                <label>שם פרטי</label>
-                <input type="text" class="form-control" formControlName ="firstname" id="fname">
->>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
             </div>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <div class="form-group">
@@ -108,19 +98,7 @@
                             class="custom-select"
                             aria-label="Default select example"
                         >
-
-
                             <option *ngFor="let i of levelsAndPrice">{{i.Level}}</option>
-
-
-                            <option
-                                *ngFor="let i of levelsAndPrice"
-                                value="{{i.Level}}"
-                            >
-                                {{i.Level}}
-                            </option>
-
-
                         </select>
                     </div>
                 </div>
@@ -235,25 +213,6 @@
 
 
 
-                </div>
-                <div>
-                    <div>מין</div>
-
-
-                    <br>
-                    <input
-                        type="radio"
-                        name="girorboy"
-                        #boy
-                    >
-                    זכר
-                    <br>
-                    <input
-                        type="radio"
-                        name="girorboy"
-                        #gir
-                    >
-                    נקבה
                 </div>
                 <br>
                 <div>

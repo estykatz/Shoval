@@ -1,4 +1,4 @@
-table,th,td{
+  table,th,td{
     border:1px solid rgb(236, 236, 238);
   }
   th, td {
@@ -18,18 +18,18 @@ table,th,td{
   text-align: center;
   margin-top: 3vh !important;
   margin-bottom: 3vh !important;
-    
+
   }
   .btn-g{
     border-radius: 2rem;
     border: rgb(210, 250, 230) !important;
-  
-    background: none !important;  
+
+    background: none !important;
     width: 3vw
     ;
     height: 3vw !important;
-    
-    
+
+
   }
   th
   {
@@ -37,7 +37,7 @@ table,th,td{
     text-align: center !important;
   }
   .btn{
-    
+
     margin-left: 5vw !important;
     text-align: center !important;
     border-radius: 1rem !important;
@@ -49,5 +49,4 @@ table,th,td{
     border-color: #6DD5FA !important;
     width: 20vw;
   }
-  
-  
+

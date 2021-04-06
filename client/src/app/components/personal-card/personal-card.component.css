@@ -1,9 +1,9 @@
 #error{
     color: red;
   }
-  h1{
-    
-  }
+  /* h1{
+
+  } */
   input{
     width: 200px;
     text-align: center;
@@ -39,7 +39,7 @@
     display: flex;
     border-radius: 25px;
     width: 40vw;
-  
+
   }
   .required{
     font-size: smaller !important;
@@ -55,15 +55,15 @@
   }
   .input{
     margin-left: auto !important;
-    margin-right: auto !important; 
+    margin-right: auto !important;
      padding-bottom: 6rem !important;
-  
-  
+
+
   }
   @media only screen and (max-width:600px ){
     .card{
       width: 90vw !important;
-  
+
     }
     .form-control{
       width: 80vw !important;

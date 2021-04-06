@@ -2,11 +2,7 @@
   color: red;
 }
 h1{
-<<<<<<< HEAD
-  
-=======
-  color: deeppink;
->>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
+
 }
 input{
   width: 200px;
@@ -18,7 +14,6 @@ div{
 .form-control{
   text-align: center;
 }
-<<<<<<< HEAD
 .form-control{
   width:20vw !important;
   text-align: center !important;
@@ -60,7 +55,7 @@ input.ng-invalid.ng-touched{
 }
 .input{
   margin-left: auto !important;
-  margin-right: auto !important; 
+  margin-right: auto !important;
    padding-bottom: 6rem !important;
 
 
@@ -74,5 +69,3 @@ input.ng-invalid.ng-touched{
     width: 80vw !important;
   }
 }
-=======
->>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
