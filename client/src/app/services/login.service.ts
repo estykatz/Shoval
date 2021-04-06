@@ -4,9 +4,6 @@
 //     providedIn:'root'
 // })
 
-
-
-
 // export class LoginService{
 //     private newUser=undefined;
 //    LoginChange:subject<boolean>=new subject<boolean>;

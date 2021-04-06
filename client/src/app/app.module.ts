@@ -13,6 +13,7 @@ import { RegistratioComponent } from './components/registratio/registratio.compo
 import { NewUserComponent } from './components/new-user/new-user.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { UsersComponent } from './components/users/users.component';
+import { PersonalcardComponent } from './components/personalcard/personalcard.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UsersComponent } from './components/users/users.component';
     RegistratioComponent,
     NewUserComponent,
     CoursesComponent,
-    UsersComponent
+    UsersComponent,
+    PersonalcardComponent
   ],
   imports: [
     BrowserModule,
