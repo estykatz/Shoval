@@ -1,8 +1,8 @@
 .border1{
-  color: crimson;
+  color: deeppink;
 }
 label{
-  color: crimson;
+  color: deeppink;
 
 }
 .block_container {
@@ -13,6 +13,7 @@ label{
 }
 h1{
   text-align: center;
+  color: deeppink;
 }
 #dateofpayment{
   width: 210px;

@@ -5,7 +5,7 @@
         <div class="block_container">
             <div class="form-group">
                 <label>שם פרטי</label>
-                <input type="text" class="form-control" formControlName = "firstName">
+                <input type="text" class="form-control" formControlName = "firstName" (ngOnBlur) ="SisterAndBrother()">
                 <div *ngIf = "myForm.controls['firstName'].touched">
                 <span *ngIf = "myForm.controls['firstName'].errors?.required!=null">שדה זה נדרש</span>
                 </div>
@@ -16,7 +16,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <div class="form-group">
                 <label>שם משפחה</label>
-                <input type="text" class="form-control" formControlName = "lastName" >
+                <input type="text" class="form-control" formControlName = "lastName"(ngOnBlur) ="SisterAndBrother()">
                 <div *ngIf ="myForm.controls['lastName'].touched">
                 <span *ngIf = "myForm.controls['lastName'].errors?.required!=null">שדה זה נדרש</span>
                 </div>
@@ -29,7 +29,7 @@
         <br>
         <div class="form-group">
           <label>טלפון </label>
-          <input type="text" class="form-control" formControlName = "phone" >
+          <input type="text" class="form-control" formControlName = "phone" (ngOnBlur)= "SisterAndBrother()">
           <div *ngIf ="myForm.controls['phone'].touched">
           <span *ngIf = "myForm.controls['phone'].errors?.required!=null">שדה זה נדרש</span>
           </div>
@@ -69,7 +69,6 @@
           </div>
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
     </fieldset>
     <input type="submit" value="לתשלום" class="btn btn-primary">
 </form>

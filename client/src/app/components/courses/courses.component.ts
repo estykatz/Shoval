@@ -10,6 +10,7 @@ import { CourseService } from 'src/app/services/course.service';
 })
 export class CoursesComponent implements OnInit {
   myForm: FormGroup;
+  level:string;
   constructor(private coursesService: CourseService) { }
 
   ngOnInit(): void {
@@ -27,14 +28,15 @@ export class CoursesComponent implements OnInit {
       const c = new Courses();
       c.DateStart = this.myForm.controls.startDate.value;
       c.DateFinish = this.myForm.controls.endDate.value;
-      c.Day = this.myForm.controls.day.value;
-      c.Hour = this.myForm.controls.hour.value;
       c.price = this.myForm.controls.price.value;
-      c.Level = this.myForm.controls.level.value;
+      c.Level =this.level;
       this.coursesService.createCourse(c).subscribe(ans => {
 
         this.myForm.reset();
       });
     }
+  }
+  selectOption(option){
+   this.level= option;
   }
 }

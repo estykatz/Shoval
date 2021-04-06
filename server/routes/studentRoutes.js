@@ -1,14 +1,9 @@
 const router = require('express').Router();
 const studentController = require('../controllers/studentController');
 
-router.get('', studentController.getStudent);
 
-router.post('', (req, res) => {
-    console.log('before post student');
-    let student = req.body;
-    console.log(student);
-    studentController.addStudent(student);
-    res.json(student);
-})
-
+router.get('/table',studentController.getStudent);
+router.get('/getlevel',studentController.getLevelAndPrice);
+router.post('/addstudent', studentController.addStudent);
+router.post('/getphone',studentController.getStudentsPhone);
 module.exports = router;

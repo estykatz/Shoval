@@ -13,7 +13,14 @@ import { RegistratioComponent } from './components/registratio/registratio.compo
 import { NewUserComponent } from './components/new-user/new-user.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { UsersComponent } from './components/users/users.component';
+
 import { PersonalcardComponent } from './components/personalcard/personalcard.component';
+
+import { PersonalCardComponent } from './components/personal-card/personal-card.component';
+import { AllStudentsComponent } from './components/all-students/all-students.component';
+import { HomeComponent } from './components/home/home.component';
+import { EmailComponent } from './components/email/email.component';
+//// 5ea2ff208d8f3e0e5ff46ca51286c3068303a73a
 
 @NgModule({
   declarations: [
@@ -25,7 +32,14 @@ import { PersonalcardComponent } from './components/personalcard/personalcard.co
     NewUserComponent,
     CoursesComponent,
     UsersComponent,
+//// HEAD
     PersonalcardComponent
+////
+  ///  PersonalCardComponent,
+   // AllStudentsComponent,
+  //  HomeComponent,
+  //  EmailComponent
+///>>>>>>> 5ea2ff208d8f3e0e5ff46ca51286c3068303a73a
   ],
   imports: [
     BrowserModule,

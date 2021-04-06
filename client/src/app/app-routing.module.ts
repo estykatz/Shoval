@@ -7,6 +7,9 @@ import { NewUserComponent } from './components/new-user/new-user.component';
 import { RegistratioComponent } from './components/registratio/registratio.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { UsersComponent } from './components/users/users.component';
+import { AllStudentsComponent } from './components/all-students/all-students.component';
+import { HomeComponent } from './components/home/home.component';
+import { EmailComponent } from './components/email/email.component';
 
 const routes: Routes = [
   { path: 'payment', component: PaymentComponent },
@@ -15,7 +18,10 @@ const routes: Routes = [
   { path: 'registratio', component: RegistratioComponent },
   { path: 'courses', component: CoursesComponent },
   { path: 'enter', component: UsersComponent },
-  { path: '', component: AppComponent }
+  { path: 'home', component: HomeComponent },
+  { path: 'allStudents', component: AllStudentsComponent },
+  { path: 'email', component: EmailComponent },
+  //{ path:'',redirectTo:'/home',pathMatch:'full'}
 ];
 
 

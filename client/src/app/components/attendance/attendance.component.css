@@ -2,7 +2,7 @@ body{
   direction:rtl;
  }
 th{
-  color: crimson;
+  color: deeppink;
   width: 250px;
   text-align: center;
  }
@@ -15,5 +15,5 @@ table{
 }
 h1{
   text-align: center;
-  color: crimson;
+  color: deeppink;
 }

@@ -3,6 +3,10 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { identityValidator } from 'src/app/validators/Identity.validator';
 import { Registratio } from 'src/app/models/registratio';
 import { StudentsService } from 'src/app/services/students.service';
+import { HelpService } from 'src/app/services/help.service';
+import { Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { Courses } from 'src/app/models/coures';
 @Component({
   selector: 'app-registratio',
   templateUrl: './registratio.component.html',
@@ -12,9 +16,11 @@ export class RegistratioComponent implements OnInit {
 
   myForm: FormGroup;
   levelh: number;
-
-
-  constructor(private studentService: StudentsService) { }
+  dayofweek: string;
+  phoneArray: Array<Registratio>;
+  levelsAndPrice: Array<Courses>;
+  @Output() myEvent = new EventEmitter<Registratio>();
+  constructor(private studentService: StudentsService, private helpService: HelpService) { }
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
@@ -30,46 +36,44 @@ export class RegistratioComponent implements OnInit {
       hmo: new FormControl(''),
       Remarks: new FormControl('')
     });
+    this.getLevelandPrice();
   }
-  addNewStudent() {
-    console.log('addStudent');
-
+  getLevelandPrice() {
+    this.studentService.getLevel().subscribe(ans => {
+      console.log(ans);
+      this.levelsAndPrice = ans;
+    })
+  }
+  addNewStudent(hmo) {
     if (this.myForm.invalid) {
+      //  this.myEvent.emit({
       const s = new Registratio();
-      console.log('first');
-      s.stFirstName = this.myForm.controls.firstname.value;
-      console.log('last');
-      s.stLastName = this.myForm.controls.lastName.value;
-      console.log('phone');
-      s.phone = this.myForm.controls.phone.value;
-      console.log('identity');
-      s.identity = this.myForm.controls.identity.value;
-      console.log('placeofstudy');
+      s.FirstName = this.myForm.controls.firstname.value;
+      s.Lastname = this.myForm.controls.lastName.value;
+      s.PhoneNumber = this.myForm.controls.phone.value;
+      s.studentId = this.myForm.controls.identity.value;
       s.PlaceOfStudy = this.myForm.controls.PlaceOfStudy.value;
-      console.log('level');
-      s.SwimmingLevels = 1;
-      console.log('debt');
+      s.SwimmingLevels =this.myForm.controls.level.value ;
       s.Debt = 720;
-      s.Discount = true;
+      if (hmo) { s.Discount = true; }
+      else { s.Discount = false; }
       console.log('kjkjkj');
       s.Remarks = this.myForm.controls.Remarks.value;
       this.studentService.createStudent(s).subscribe(ans => {
-        console.log('addStudentFunction');
-
         this.myForm.reset();
+        this.helpService.getAllStudents();
       });
     }
-
   }
-  // onChange(event) {
-  //   if (event == 1) {
-  //     this.levelh = 0;
-  //   }
-  //   if (event == 2) {
-  //     this.levelh = 1;
-  //   }
-  //   if (event == 3) {
-  //     this.levelh = 2;
-  //   }
-  // }
+  PhoneNumber() {
+    const s = new Registratio();
+    s.PhoneNumber = this.myForm.controls.phone.value;
+    this.studentService.getPhone(s).subscribe(ans => {
+      console.log(ans);
+      this.phoneArray = ans;
+    })
+  }
+  onChangeDay(day: string) {
+    this.dayofweek = day;
+  }
 }

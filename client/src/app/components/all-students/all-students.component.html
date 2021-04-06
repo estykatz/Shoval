@@ -1,0 +1,23 @@
+<h1>רשימת התלמידים</h1>
+<table class="table table-hover" (onload)="this.ngOnInit()">
+  <tr>
+    <th></th>
+    <th>שם פרטי</th>
+    <th>שם משפחה</th>
+    <th>טלפון</th>
+    <th>מקום לימודים</th>
+    <th>רמת לימוד</th>
+    <th>ת"ז</th>
+    <th>הערות</th>
+  </tr>
+  <tr *ngFor = "let i of students">
+  <td><button value="לפרטים" (click)="getDetails(i.FirstName,i.Lastname,i.PhoneNumber)"></button></td>
+  <td>{{i.FirstName}}</td>
+  <td>{{i.Lastname}}</td>
+  <td>{{i.PhoneNumber}}</td>
+  <td>{{i.PlaceOfStudy}}</td>
+  <td>{{i.SwimmingLevels}}</td>
+  <td>{{i.studentId}}</td>
+  <td>{{i.Remarks}}</td>
+  </tr>
+</table>

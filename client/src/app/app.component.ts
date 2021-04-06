@@ -14,6 +14,7 @@ export class AppComponent {
   regist = false;
   course = false;
   enter = false;
+  seeStudent=false;
   name: string;
   constructor(private userService: UserService, private sharedService: SharedService) {
   }
@@ -45,5 +46,8 @@ export class AppComponent {
   }
   starta() {
     this.visibleattendance = true;
+  }
+  seeAllStudents(){
+    this.seeStudent=true;
   }
 }
