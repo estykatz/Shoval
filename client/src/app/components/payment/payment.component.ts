@@ -4,6 +4,9 @@ import { identityValidator } from 'src/app/validators/Identity.validator';
 import { identity, from } from 'rxjs';
 import { Payment } from 'src/app/models/payment';
 import { PaymentsService } from 'src/app/services/payments.service';
+import { sisterAndBrotherValidator } from 'src/app/validators/sisterandbrother.validator';
+import { HelpService } from 'src/app/services/help.service';
+import { Registratio } from 'src/app/models/registratio';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -11,13 +14,19 @@ import { PaymentsService } from 'src/app/services/payments.service';
 })
 export class PaymentComponent implements OnInit {
   myForm: FormGroup;
-  constructor(private paymentService: PaymentsService) { }
+  u: boolean;
+  student: Registratio;
+  constructor(private paymentService: PaymentsService, private helpService: HelpService) { }
 
   ngOnInit(): void {
+    this.student = this.helpService.getData();
+    console.log('student!!!!!!!!!!!!!!!');
+    console.log(this.student);
+
     this.myForm = new FormGroup({
-      firstName: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[א-ת]{1}[א-ת ]*')])),
-      lastName: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[א-ת]{1}[א-ת ]*')])),
-      phone: new FormControl('', Validators.required),
+      firstName: new FormControl(this.student.FirstName, Validators.compose([Validators.required, Validators.pattern('^[א-ת]{1}[א-ת ]*')])),
+      lastName: new FormControl(this.student.Lastname, Validators.compose([Validators.required, Validators.pattern('^[א-ת]{1}[א-ת ]*')])),
+      phone: new FormControl(this.student.PhoneNumber, Validators.required),
       price: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[0-9]{0,}$')])),
       date: new FormControl('', Validators.required),
       // identity: new FormControl('', Validators.compose([Validators.required, identityValidator(),
@@ -25,7 +34,12 @@ export class PaymentComponent implements OnInit {
       CardOrCash: new FormControl(''),
       mapalim: new FormControl(''),
       shoval: new FormControl('')
-    });
+    }, sisterAndBrotherValidator(['firstName', 'lastName', 'phone']));
+    this.SisterAndBrother();
+  }
+  errorsab() {
+    console.log('eerrors');
+    console.log(this.myForm.errors?.SandB);
   }
   addNewPayment(shoval, mapalim, card, cash) {
     console.log('addnew');
@@ -53,6 +67,7 @@ export class PaymentComponent implements OnInit {
       if (cash) {
         p.WayofPayment = 0;
       }
+
       // p.WayofPayment = this.myForm.controls.CardOrCash.value;
       // if (this.myForm.controls.shoval.touched) {
       //   p.PaymentTransfer = this.myForm.controls.shoval.value;
@@ -60,13 +75,40 @@ export class PaymentComponent implements OnInit {
       // if (this.myForm.controls.mapalim.touched) {
       //   p.PaymentTransfer = this.myForm.controls.mapalim.value;
       // }
-      console.log('paymentcomponent');
+
+
       this.paymentService.createPayment(p).subscribe(ans => {
+        console.log(ans);
 
         this.myForm.reset();
       });
     }
 
+
+  }
+
+  SisterAndBrother() {
+    if (this.myForm.errors?.SandB) {
+      console.log('yeshiiiiiiiii');
+
+      // this.myForm.controls.firstName.valid && this.myForm.controls.lastName.valid && this.myForm.controls.phone.valid
+      const p = new Payment();
+
+      p.FirstName = this.myForm.controls.firstName.value;
+      p.LastName = this.myForm.controls.lastName.value;
+      p.PhoneNumber = this.myForm.controls.phone.value;
+      this.paymentService.SisterandBrother(p).subscribe(ans => {
+        console.log('ans');
+        console.log(ans);
+
+        this.u = ans;
+        if (this.u) {
+          console.log('yes!!!!!!!!!!!!!!');
+        }
+      });
+
+
+    }
   }
 }
 ///

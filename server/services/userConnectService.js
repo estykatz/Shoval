@@ -51,7 +51,7 @@ const createUser = async (user) => {
         console.log(error);
     }
 }
-const checkIfTheRightUser = async (name) => {
+const checkIfTheRightUser = async (user) => {
     try {
         let sql = require("mssql/msnodesqlv8");
         let dbConfig = new sql.ConnectionPool({
@@ -87,5 +87,5 @@ const checkIfTheRightUser = async (name) => {
     }
 }
 module.exports = {
-    createUser
+    createUser,checkIfTheRightUser
 }

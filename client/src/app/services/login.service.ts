@@ -1,35 +1,26 @@
-// import { userInfo } from "os";
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+@Injectable({
+  providedIn: 'root'
+})
+export class LoginService {
+  private currentUser = undefined;
+  loginchange: Subject<Boolean>=new Subject<Boolean>();
+  constructor() { }
 
-// @Injectable({
-//     providedIn:'root'
-// })
-
-
-
-
-// export class LoginService{
-//     private newUser=undefined;
-//    LoginChange:subject<boolean>=new subject<boolean>;
-//     constructor(){
-
-//     }
-//     get IsLogin(){
-//         return this.newUser=User;
-//     }
-//     get newUser(){
-//         return this.newUser;
-//     }
-
-
-//     setNewUser(user){
-// this.newUser=user;
-//         if(user!==undefined){
-//             this.loginChange.next(true);
-//         }
-// else{
-//     this.loginChange.next(false)
-// }
-//        }
-
-
-// }
+  get IsLogin() {
+    return this.currentUser !== undefined;
+  }
+  get CurrentUser() {
+    return this.currentUser;
+  }
+  SetCurrentUser(user){
+    this.currentUser=user;
+    if(user!==undefined){
+      this.loginchange.next(true);
+    }
+    else{
+      this.loginchange.next(false);
+    }
+  }
+}

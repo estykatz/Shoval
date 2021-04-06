@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Registratio } from '../models/registratio';
+import { Levels } from '../models/levels';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,13 +14,12 @@ export class StudentsService {
 
 
   createStudent(student: Registratio): Observable<any> {
-    console.log('in url');
-
-    return this.http.post<Registratio>(this.url, student);
-    console.log('after url st');
-
+    return this.http.post<Registratio>(`${this.url}/addstudent`, student);
   }
-  getStudent(): Observable<any> {
-    return this.http.get<any>(this.url);
+  getPhone(student: Registratio): Observable<any> {
+    return this.http.post<Registratio>(`${this.url}/getphone`, student);
+  }
+  getLevel(): Observable<any>{
+    return this.http.get<any>(`${this.url}/getlevel`);
   }
 }

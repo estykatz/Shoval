@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
 const usersController = require('../controllers/userController');
-
-router.get('/checkuser/:user',usersController.CheckUser);
+router.get('/login',usersController.CheckUser);
+//router.get('/checkuser/:user',usersController.CheckUser);
 router.get('', usersController.getUser);
 
     

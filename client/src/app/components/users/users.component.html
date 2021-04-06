@@ -1,26 +1,34 @@
-<form
+<div style="margin-top: 25vh !important;position: absolute !important;margin-right: 15vw !important;" class=" card p-shadow-4 p-mt-6 p-mx-auto mb-2"><form
     [formGroup]="myForm"
     (submit)="CheckIftheRightUser()"
 >
     <fieldset>
         <h1>כניסה למערכת</h1>
-        <div>
-            <label>שם משתמש</label>
+        <div class="form-group">
+            
+            <label style="font-size: large !important;width: 3vw !important;" class="p-text-center">
+                <img src="../../../assets/097-user.png" width="50%" alt="" srcset="">
+            </label>
             <input
+            placeholder="שם משתמש"
                 type="text"
                 class="form-control"
                 formControlName="userName"
+                pInputText class="p-d-flex p-text-right p-jc-center form-control" 
             >
-
         </div>
-        <div>
-            <label>סיסמא</label>
+        <div class="form-group">
+            <label style="font-size: large !important;width: 3vw !important;" class="p-text-center">
+                <img src="../../../assets/168-padlock.png" width="50%" alt="" srcset=""></label>
             <input
+            placeholder="סיסמה"
                 type="text"
                 class="form-control"
                 formControlName="password"
+                pInputText class="p-d-flex p-text-center p-jc-center form-control" 
             >
         </div>
     </fieldset>
-    <input type="submit">
-</form>
+    <input class="d-flex justify-content-center btn btn-primary mb-2 btn-lg p-shadow-4" value="שלח" type="submit">
+    <div id="error" style="margin: auto !important;" class="required d-flex justify-content-center" *ngIf ="!trueOrFalsePassword">השם משתמש או הסיסמא שגויים</div>
+</form></div>

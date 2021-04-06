@@ -8,9 +8,12 @@ import { Payment } from '../models/payment';
 export class PaymentsService {
   constructor(private http: HttpClient) { }
 
-  url = 'http://localhost:4000/addpayment';
+  url = 'http://localhost:4000';
   createPayment(payment: Payment): Observable<any> {
-    return this.http.post<Payment>(this.url, payment);
+    return this.http.post<Payment>(`${this.url}/add/addpayment`, payment);
+  }
+  SisterandBrother(payment: Payment): Observable<any> {
+    return this.http.post<Payment>(`${this.url}/sisterandbrother/checked`, payment);
   }
   getPayment(): Observable<any> {
     return this.http.get<any>(this.url);

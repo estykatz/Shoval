@@ -1,0 +1,99 @@
+.activelink{
+  padding: 10px;
+  background-color: rgb(210, 221, 245);
+  color: white !important;
+  border-bottom: 3px solid rgb(109, 145, 223) !important ;
+  height: 10vh !important;
+}
+.button-user{
+  margin-left: 1vw !important;
+  border:2px solid #3ccbff !important;
+  border-radius: 0.5rem !important;
+  color:#2cc4fc !important;
+  background-color: rgb(223, 255, 236) !important;
+  
+
+
+}
+.class1{
+  margin-top: 0rem !important;
+  float: top;
+  opacity: 70% !important;
+}
+.class2{
+  position: absolute !important ;
+  z-index: 9 !important;
+  opacity: 50% !important;
+  width: 100vw !important;height: 10vh !important;
+}
+.activelink1{
+  
+}
+.a{
+  text-decoration: none !important;
+  color: rgb(6, 168, 209) ;
+}
+body{
+  background-image: url(../../../assets/stair-pool.jpg) !important;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.li{
+  
+
+
+}
+.nav-item{
+
+
+
+}
+h1{
+  color: rgb(133, 106, 253);
+  font-size: 20px ;
+  text-shadow: 0px 0px 3px rgb(1, 35, 46), 0 0 10px rgb(71, 120, 192);
+  font-weight: bolder;
+  opacity: 90%;
+
+
+  
+}
+.divh1{
+  text-align: center !important;
+
+
+}
+.navbar{
+  background-color: white !important;
+}
+.navbar-brand{
+  background-color: white !important;
+
+  padding-top: 0.4rem !important;
+  margin: auto !important;
+  color:dodgerblue !important;
+}
+.backroundImage{
+  
+  width: 40vw;
+  opacity: 50%;
+  background: url(../../../assets/stair-pool.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: auto;
+  text-align: center !important;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.stack-top{
+  z-index: 9;
+  margin: 20px; /* for demo purpose  */
+}
+@media only screen and (max-width:600px ){
+  h1{
+    font-size: 30px !important;
+  }
+
+}
+

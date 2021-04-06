@@ -13,9 +13,10 @@ const getUser = async (req, res) => {
 }
 const CheckUser=async(req, res)=> {
     let name = req.params.user;
+    let user=req.body;
     //let pass = req.params.user.password;
     console.log(name);
-    usersService.checkIfTheRightUser(name);
+    usersService.checkIfTheRightUser(user);
     
 }
 function AddUser(user) {

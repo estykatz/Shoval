@@ -1,134 +1,195 @@
-<form
+<div class="card p-shadow-4 mt-5 mx-auto "><form
     [formGroup]="myForm"
-    (submit)="addNewStudent()"
+    (submit)="addNewStudent(hmo.checked,boy.checked,girl.checked,payments.click)"
 >
-    <h1 class="border1">פרטיים אישיים</h1>
-    <fieldset>
-        <div id="block_containel">
+    <h1 *ngIf = "student==undefined" class="border1">פרטיים אישיים</h1>
+    <h1 *ngIf = "student!=undefined" class="border1">עריכת פרטי תלמיד</h1>
+    <!-- <ng-template class="border1" #edit >עריכת פרטי תלמיד</ng-template> -->
+    <!-- <h1 *ngIf ="data==false" class="border1">עריכת פרטי תלמיד</h1> -->
+    <br>
+    <fieldset class="form-containel">
+        <div class="cardBody  mx-auto ">
+        <!-- <div id="block_containel">
             <div class="form-group">
                 <label>שם פרטי</label>
                 <input
                     type="text"
                     class="form-control"
-                    formControlName="firstname"
+
+
                 >
             </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <div class="form-group">
                 <label>שם משפחה</label>
                 <input
                     type="text"
                     class="form-control"
-                    formControlName="lastName"
+
+
                 >
             </div>
+        </div> -->
+        <div >
+            <div >
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="שם פרטי"
+                    aria-label="First name"
+                    formControlName="firstname"
+                    id="fname"
+                    pInputText class="p-d-flex p-text-right p-jc-center form-control"
+                >
+            </div>
+            <br>
+            <div >
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="שם משפחה"
+                    aria-label="Last name"
+                    formControlName="lastName"
+                    id="lname"
+                    pInputText class="p-d-flex p-text-center p-jc-center form-control"
+                >
+            </div>
+            <br>
         </div>
-        <br>
-        <div id="block_containel"></div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <div class="from-group">
-            <label>טלפון</label>
-            <input
-                type="text"
-                class="form-control"
-                formControlName="phone"
-            >
-        </div>
-
-
-
-        <br>
         <div id="block_containel">
             <div class="form-group">
-                <label>יום</label>
-
-
-                <select
-                    name="dd"
-                    formControlName="day"
-                >
-                    <option value="1">ראשון</option>
-                    <option value="2">שני</option>
-                    <option value="3">רביעי</option>
-                    <option value="4">חמישי</option>
-                    <option value="5">שישי</option>
-                </select>
-
-
-            </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <div class="form-group">
-                <label>שעה</label>
-
-
-                <select
-                    name="dd"
-                    formControlName="hour"
+                <input
+                    type="text"
+                    class="form-control"
+                    formControlName="phone"
+                    (keydown)="PhoneNumber()"
+                    id="phonenumber"
+                    placeholder="טלפון"
+                    pInputText class="p-d-flex p-text-center p-jc-center form-control"
 
                 >
-                    <option value="1">16:05</option>
-                    <option value="2">15:00</option>
-                    <option value="3">20:00</option>
-                    <option value="4">17:00</option>
-                    <option value="5">שישי</option>
+                <br>
+                <select placeholder="טלפון" class="custom-select">
+                    <option  *ngFor="let phone of phoneArray">{{phone.PhoneNumber}}</option>
                 </select>
+                <br>
             </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <div class="form-group">
-                <label>רמת לימוד</label>
+             <div class="form-group">
                 <select
+                    placeholder="רמת לימוד"
                     name="select1"
                     formControlName="level"
+                    class="custom-select"
+                    aria-label="Default select example"
                 >
-                    <option value="1">מתחילים</option>
-                    <option value="2">שיפור</option>
-                    <option value="3">מתקדמים</option>
+                    <option *ngFor="let i of levelsAndPrice">{{i.Level}}</option>
                 </select>
-
-
             </div>
         </div>
-        <br>
+
         <div id="block_containel">
             <div class="form-group">
-                <label>מקום לימודים</label>
                 <input
                     type="text"
                     class="form-control"
                     formControlName="PlaceOfStudy"
+                    placeholder="מקום לימודים"
+                    pInputText class="p-d-flex p-text-center p-jc-center form-control"
                 >
             </div>
-            <div class="form-group">
-                <label>חבר בקופת חולים</label>
+            <div style="text-align: right !important;" class="form-group">
+
                 <input
+                style="margin: left 1px !important;padding-left: 1.5px;"
                     type="radio"
                     formControlName="hmo"
-                    checked="checked"
-                >
+                    #hmo
+                > <label>חבר בקופת חולים</label>
             </div>
         </div>
-        <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <div>
-            <label>ת.ז</label>
+
+        <div *ngIf="hmo.checked">
             <input
                 type="text"
                 formControlName="identity"
+                pInputText class="p-d-flex p-text-center p-jc-center form-control"
+                placeholder="ת.ז."
             >
-            <span *ngIf ="myForm.controls['identity'].errors?.required!=null">שדה זה נדרש</span>
-            <span *ngIf ="myForm.controls['identity'].errors?.pattern!=null">יש להקיש ספרות בלבד</span>
-            <span *ngIf ="myForm.controls['identity'].errors?.minlength!=null">יש להקיש 9 ספרות</span>
-            <span *ngIf ="myForm.controls['identity'].errors?.IdentityError!=null">ת.ז שגויה</span>
-            <span *ngIf ="myForm.controls['identity'].errors?.maxlength!=null">יש להקיש 9 ספרות</span>
+
+            <span class="required" *ngIf="myForm.controls['identity'].errors?.required!=null">שדה זה נדרש</span>
+            <span class="required" *ngIf="myForm.controls['identity'].errors?.pattern!=null">יש להקיש ספרות בלבד</span>
+            <span class="required" *ngIf="myForm.controls['identity'].errors?.minlength!=null">יש להקיש 9 ספרות</span>
+            <span class="required" *ngIf="myForm.controls['identity'].errors?.IdentityError!=null">ת.ז שגויה</span>
+            <span class="required" *ngIf="myForm.controls['identity'].errors?.maxlength!=null">יש להקיש 9 ספרות</span>
         </div>
+        <div style="text-align: right !important;">
+            <label>מין</label>
+            <br>
+            <div class="form-check form-check-inline">
+                <input
+
+                    class="form-check-input"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="inlineRadio1"
+                    value="option1"
+                    formControlName="boyorgirl"
+                    #boy
+                >
+                <label
+                    class="form-check-label"
+                    for="inlineRadio1"
+                >
+                    בן
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input
+
+                    class="form-check-input"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="inlineRadio2"
+                    value="option2"
+                    formControlName="boyorgirl"
+                    #girl
+                >
+                <label
+                    class="form-check-label"
+                    for="inlineRadio2"
+                >
+                    בת
+                </label>
+            </div>
+
+
+        </div>
+        <br>
         <div>
-          <label>הערות</label>
-          <input
-              type="text"
-              formControlName="Remarks"
-          >
-      </div>
-    </fieldset>
-    <input  type="submit" value="להרשמה" class="btn btn-primary">
-</form>
+            <input
+                type="text"
+                formControlName="Remarks"
+                placeholder="הערות"
+                pInputText class="p-d-flex p-text-center p-jc-center form-control"
+            >
+        </div>
+   </div> </fieldset>
+   <br>
+    <div class="d-flex flex-row justify-content-center">
+        <input
+        class=" btn btn-primary mb-2 btn-lg p-shadow-4"
+            type="submit"
+            value="הרשמה"
+
+        >
+
+    &nbsp;
+        <input
+        class=" btn btn-primary mb-2 btn-lg p-shadow-4"
+            type="submit"
+            value="לתשלום"
+            #payments
+        ></div>
+
+</form></div>
 <!-- <div>{{mass}}</div> -->

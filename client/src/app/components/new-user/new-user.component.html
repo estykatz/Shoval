@@ -1,26 +1,27 @@
-<form  [formGroup] = "myForm" (submit)="addNewUser()">
+<div class="card p-shadow-4 p-mt-6 p-mx-auto mb-2"  ><form  [formGroup] = "myForm" (submit)="addNewUser()">
   <h1 class="border1">הרשמה</h1>
   <fieldset>
       <div class="form-group">
-        <label>שם</label>
-        <input type="text" class="form-control" formControlName = "name">
-        <span *ngIf = "myForm.controls['name'].errors?.required!=null">שדה זה נדרש</span>
+        <label class="p-text-center">שם</label>
+        <input type="text" pInputText class="p-d-flex p-text-center p-jc-center" type="text" class="form-control" class="form-control" formControlName = "name">
+        <span class="required" *ngIf = "myForm.controls['name'].errors?.required!=null">שדה זה נדרש</span>
       </div>
       <div class="form-group">
-        <label>מייל</label>
-        <input type="email" class="form-control" formControlName = "email">
-        <span *ngIf = "myForm.controls['name'].errors?.required!=null">שדה זה נדרש</span>
+        <label class="p-text-center">מייל</label>
+        <input type="email" pInputText class="p-d-flex p-text-center p-jc-center" type="text" class="form-control" class="form-control" formControlName = "email">
+        <span class="required" *ngIf = "myForm.controls['email'].errors?.required!=null">שדה זה נדרש</span>
       </div>
       <div class="form-group">
-        <label>סיסמא</label>
-        <input type="password" class="form-control" formControlName = "password">
+        <label class="p-text-center">סיסמא</label>
+        <input type="password" pInputText class="p-d-flex p-text-center p-jc-center" type="text" class="form-control" class="form-control" formControlName = "password">
+        <span class="required" *ngIf = "myForm.controls['password'].errors?.minLength!=null">סיסמא חייבת להיות לפחות בת 6 תווים</span>
       </div>
       <div class="form-group">
-        <label>אימות סיסמא</label>
-        <input type="password" class="form-control" formControlName = "rightpassword">
-        <span *ngIf = "myForm.errors?.PasswordError">הסיסמאות אינן תואמות </span>
+        <label class="p-text-center">אימות סיסמא</label>
+        <input type="password" pInputText class="p-d-flex p-text-center p-jc-center" type="text" class="form-control" class="form-control" formControlName = "rightpassword">
+        <span class="required" *ngIf = "myForm.errors?.PasswordError">הסיסמאות אינן תואמות </span>
       </div>
 
   </fieldset>
-  <input type="submit" class="btn btn-primary" value="צור משתמש">
-</form>
+  <input type="submit" class="btn btn-primary d-flex justify-content-center btn btn-primary mb-2 btn-lg p-shadow-4" value="צור משתמש">
+</form></div>

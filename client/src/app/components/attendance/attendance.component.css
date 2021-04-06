@@ -2,7 +2,7 @@ body{
   direction:rtl;
  }
 th{
-  color: crimson;
+  color: rgb(21, 1, 105);
   width: 250px;
   text-align: center;
  }
@@ -15,5 +15,6 @@ table{
 }
 h1{
   text-align: center;
-  color: crimson;
+  color: rgb(28, 3, 87);
 }
+

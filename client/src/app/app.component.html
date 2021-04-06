@@ -1,91 +1,28 @@
-<nav class="nav">
-    <ul class="nav nav-pills nav-fill">
-        <li class="nav-link">
-            <a
-                [routerLink]="['/new-user']"
-                routerLinkActive="activelink"
-                class="a"
-                (click)="startb()"
-            >
-                משתמש חדש
-            </a>
-        </li>
-        <li class="nav-link">
-            <a
-                [routerLink]="['/enter']"
-                routerLinkActive="activelink"
-                class="a"
-                (click)="startenter()"
-            >
-                משתמש קים
-            </a>
-        </li>
-        <li class="nav-link">
-            <a
-                [routerLink]="['/registratio']"
-                routerLinkActive="activelink"
-                class="a"
-                (click)="startre()"
-            >
-                הרשמה
-            </a>
-        </li>
-        <li class="nav-link">
-            <a
-                [routerLink]="['/attendance']"
-                routerLinkActive="activelink"
-                class="a"
-                (click)="starta()"
-            >
-                נוכחות
-            </a>
-        </li>
-        <li class="nav-link">
-            <a
-                [routerLink]="['/payment']"
-                routerLinkActive="activelink"
-                class="a"
-                (click)="start()"
-            >
-                לתשלום
-            </a>
-        </li>
-        <li class="nav-link">
-            <a
-                [routerLink]="['/courses']"
-                routerLinkActive="activelink"
-                class="a"
-                (click)="startc()"
-            >
-                קורסים
-            </a>
-        </li>
-    </ul>
-</nav>
 
+<app-home></app-home>
 
-
-<div>
+<router-outlet></router-outlet>
+<!-- <div>
     <div
         class="content"
         role="main"
         *ngIf="visible == false && visibleattendance==false && visibleuser==false && regist==false && course==false
-        && enter==false"
+        && enter==false && seeStudent==false"
     >
-
-
-
         <h1>חוגי שחיה שובל</h1>
         <h1>message from service{{name}}</h1>
     </div>
     <div *ngIf="visibleuser">
         <app-new-user></app-new-user>
     </div>
+    <div *ngIf="seeStudent">
+    <app-all-students #com1></app-all-students>
+    </div>
     <div *ngIf="visible">
         <app-payment></app-payment>
     </div>
     <div *ngIf="regist">
-        <app-registratio></app-registratio>
+        <app-registratio (myEvent) ="com1.getAllStudents()"></app-registratio>
     </div>
     <div *ngIf="enter">
         <app-users></app-users>
@@ -96,7 +33,7 @@
     <div *ngIf="course">
         <app-courses></app-courses>
     </div>
-</div>
+</div> -->
 
 
 

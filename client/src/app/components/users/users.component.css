@@ -1,0 +1,71 @@
+#error{
+  color: red;
+}
+h1{
+  
+}
+input{
+  width: 200px;
+  text-align: center;
+}
+div{
+  text-align: center import!;
+}
+.form-control{
+  text-align: center;
+}
+.form-control{
+  width:20vw !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  border-radius: 1rem;
+  border: 1.5px solid #6DD5FA ;
+}
+.bg{
+  background-image: linear-gradient(to bottom,rgb(105, 149, 216),rgb(223, 225, 245)) !important;
+}
+.form-group{
+text-align: center;
+}
+h1{
+  text-align: center;
+  margin: 35px;
+}
+input.ng-invalid.ng-touched{
+  border-color: red;
+}
+.card{
+  display: flex;
+  border-radius: 25px;
+  width: 30vw;
+
+}
+.required{
+  font-size: smaller !important;
+  color: red !important;
+}
+.btn{
+  margin-right: auto !important;
+  margin-left: auto !important;
+  text-align: center !important;
+  border-radius: 1rem !important;
+  background-image:  linear-gradient(to bottom left,#2980B9,#6DD5FA) !important ;
+  border: none !important;
+}
+.input{
+  margin-left: auto !important;
+  margin-right: auto !important; 
+   padding-bottom: 6rem !important;
+
+
+}
+@media only screen and (max-width:600px ){
+  .card{
+    width: 90vw !important;
+
+  }
+  .form-control{
+    width: 80vw !important;
+  }
+}
