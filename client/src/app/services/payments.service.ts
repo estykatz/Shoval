@@ -13,7 +13,11 @@ export class PaymentsService {
     return this.http.post<Payment>(`${this.url}/add/addpayment`, payment);
   }
   SisterandBrother(payment: Payment): Observable<any> {
+<<<<<<< HEAD
+    return this.http.post<Payment>(`${this.url}/sisterandbrother/checked`, payment);
+=======
     return this.http.post<Payment>(`${this.url}/sisterandbrother`, payment);
+>>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
   }
   getPayment(): Observable<any> {
     return this.http.get<any>(this.url);

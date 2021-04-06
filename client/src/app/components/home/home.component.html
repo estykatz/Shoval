@@ -1,3 +1,62 @@
+<<<<<<< HEAD
+<div [ngClass]="{'class2':loggedIn===false,'class1':loggedIn===true}" ><nav  class="navbar navbar-expand-lg navbar-light bg-light d-flex">
+    <img src="/assets/לוגו שובל.png" width="15%"  class="d-inline-block align-top" alt="">
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul  class=" nav-fill navbar-nav d-flex justify-content-end align-items-end">
+      <li class=" nav-item mx-2 active align-items-end"   *ngIf="isAdmin&&loggedIn"
+      >
+          <a [routerLink] ="['/new-user']" routerLinkActive ="activelink">משתמש חדש</a>
+      </li>
+
+      <li class=" nav-item mx-2" *ngIf="loggedIn">
+        <a [routerLink] ="['/allStudents']" routerLinkActive ="activelink">לרשימת התלמידים</a>
+    </li>
+      <li class=" nav-item mx-2"*ngIf="loggedIn">
+          <a [routerLink] ="['/registratio',data]" routerLinkActive ="activelink">הרשמה</a>
+      </li>
+      <li class=" nav-item mx-2" *ngIf="loggedIn">
+          <a [routerLink] ="['/attendance']" routerLinkActive ="activelink" >נוכחות</a>
+      </li>
+      <li class=" nav-item mx-2"*ngIf="loggedIn">
+          <a [routerLink] ="['/payment']" routerLinkActive ="activelink">לתשלום</a>
+      </li>
+      <li class=" nav-item mx-2"*ngIf="loggedIn&&isAdmin">
+          <a [routerLink]="['/courses']"  routerLinkActive="activelink">קורסים</a>
+      </li>
+      <li class="nav-item mx-2"*ngIf="loggedIn">
+        <a [routerLink]="['/email']"  routerLinkActive="activelink">צירוף משתמש</a>
+    </li>
+    <li class=" nav-item mx-2"*ngIf="loggedIn&&isAdmin">
+
+      <a [routerLink]="['/getAllUsers']"  routerLinkActive="activelink">כל המשתמשים</a>
+  </li>
+  </ul>
+    </div>
+
+        <button *ngIf="!loggedIn" class="button-user btn btn-primary" [routerLink] ="['/enter']"  >
+            <img width="40vw" src="../../../assets/097-user.png" alt="">
+            <br>
+            משתמש קיים
+
+        </button>
+        <button *ngIf="loggedIn" class="button-user btn btn-primary"   >
+            <img width="40vw" src="../../../assets/097-user.png" alt="">
+            <br>
+            מחובר
+
+        </button>
+    <!-- routerLinkActive ="activelink" -->
+</nav></div>
+<div *ngIf="!loggedIn" style="position: absolute;" ><img src="../../../assets/pool.jpg" width="100%" style="text-align: center;" alt="" srcset="">
+
+
+</div>
+=======
 <nav class="nav">
   <ul class="nav nav-pills nav-fill">
       <li class="nav-link">
@@ -27,5 +86,6 @@
   </ul>
 </nav>
 <h1>חוגי שחיה שובל</h1>
+>>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
 
 

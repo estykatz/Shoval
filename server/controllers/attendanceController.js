@@ -1,4 +1,6 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 const attendanceService=require('../services/attendanceService');
 
 const getAttendance=async(req,res)=>{
@@ -15,6 +17,7 @@ function addattendance(attendance){
 module.exports={
     addAttendance,getAttendance
 =======
+>>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
 const attendanceservice = require('../services/attendanceService');
 
 
@@ -24,5 +27,8 @@ function getListOfStudent() {
 }
 module.exports={
     getListOfStudent
+<<<<<<< HEAD
+=======
 >>>>>>> 5ea2ff208d8f3e0e5ff46ca51286c3068303a73a
+>>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
 }

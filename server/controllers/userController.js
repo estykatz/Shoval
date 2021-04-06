@@ -11,6 +11,15 @@ const getUser = async (req, res) => {
         return res.status(500).send("Internal Server Error");
     }
 }
+<<<<<<< HEAD
+const CheckUser=async(req, res)=> {
+    let name = req.params.user;
+    let user=req.body;
+    //let pass = req.params.user.password;
+    console.log(name);
+    usersService.checkIfTheRightUser(user);
+    
+=======
 const CheckUser = async (req, res) => {
     try {
         const user = req.body;
@@ -24,6 +33,7 @@ const CheckUser = async (req, res) => {
     }
     //   return usersService.checkIfTheRightUser(user);
 
+>>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
 }
 const AddUser = (req, res) => {
     console.log('חחח');

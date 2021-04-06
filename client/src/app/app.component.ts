@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserService } from './services/user.service';
+//import { UserService } from './services/user.service';
 import { SharedService } from './services/shared.service';
 @Component({
   selector: 'app-root',
@@ -16,17 +16,18 @@ export class AppComponent {
   enter = false;
   seeStudent=false;
   name: string;
-  constructor(private userService: UserService, private sharedService: SharedService) {
+  //private userService: UserService,
+   constructor( private sharedService: SharedService) {
   }
 
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit(): void {
 
-    this.userService.getUser()
-      .subscribe((user) => {
-        // tslint:disable-next-line: no-debugger
+    // this.userService.getUser()
+    //   .subscribe((user) => {
+    //     // tslint:disable-next-line: no-debugger
 
-      });
+    //   });
     this.sharedService.shareName.subscribe(name => this.name = name);
   }
   startre() {

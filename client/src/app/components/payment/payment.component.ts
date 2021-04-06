@@ -4,6 +4,9 @@ import { identityValidator } from 'src/app/validators/Identity.validator';
 import { identity, from } from 'rxjs';
 import { Payment } from 'src/app/models/payment';
 import { PaymentsService } from 'src/app/services/payments.service';
+import { sisterAndBrotherValidator } from 'src/app/validators/sisterandbrother.validator';
+import { HelpService } from 'src/app/services/help.service';
+import { Registratio } from 'src/app/models/registratio';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -12,13 +15,21 @@ import { PaymentsService } from 'src/app/services/payments.service';
 export class PaymentComponent implements OnInit {
   myForm: FormGroup;
   u: boolean;
-  constructor(private paymentService: PaymentsService) { }
+
+  student: Registratio;
+  constructor(private paymentService: PaymentsService, private helpService: HelpService) { }
+
+
 
   ngOnInit(): void {
+    this.student = this.helpService.getData();
+    console.log('student!!!!!!!!!!!!!!!');
+    console.log(this.student);
+
     this.myForm = new FormGroup({
-      firstName: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[א-ת]{1}[א-ת ]*')])),
-      lastName: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[א-ת]{1}[א-ת ]*')])),
-      phone: new FormControl('', Validators.required),
+      firstName: new FormControl(this.student.FirstName, Validators.compose([Validators.required, Validators.pattern('^[א-ת]{1}[א-ת ]*')])),
+      lastName: new FormControl(this.student.Lastname, Validators.compose([Validators.required, Validators.pattern('^[א-ת]{1}[א-ת ]*')])),
+      phone: new FormControl(this.student.PhoneNumber, Validators.required),
       price: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[0-9]{0,}$')])),
       date: new FormControl('', Validators.required),
       // identity: new FormControl('', Validators.compose([Validators.required, identityValidator(),
@@ -26,7 +37,12 @@ export class PaymentComponent implements OnInit {
       CardOrCash: new FormControl(''),
       mapalim: new FormControl(''),
       shoval: new FormControl('')
-    });
+    }, sisterAndBrotherValidator(['firstName', 'lastName', 'phone']));
+    this.SisterAndBrother();
+  }
+  errorsab() {
+    console.log('eerrors');
+    console.log(this.myForm.errors?.SandB);
   }
   addNewPayment(shoval, mapalim, card, cash) {
     console.log('addnew');
@@ -75,33 +91,52 @@ export class PaymentComponent implements OnInit {
   }
 
   SisterAndBrother() {
-    if (this.myForm.controls.firstName.valid && this.myForm.controls.lastName.valid && this.myForm.controls.phone.valid) {
-      const p = new Payment();
 
-      p.FirstName = this.myForm.controls.firstName.value;
-      p.LastName = this.myForm.controls.lastName.value;
-      p.PhoneNumber = this.myForm.controls.phone.value;
-      this.paymentService.SisterandBrother(p).subscribe(ans => {
-        this.u = ans;
-      });
-      if (this.u) {
-        console.log('yes!!!!!!!!!!!!!!');
+    if (this.myForm.errors?.SandB) {
+      console.log('yeshiiiiiiiii');
+
+      // this.myForm.controls.firstName.valid && this.myForm.controls.lastName.valid && this.myForm.controls.phone.valid
+
+      if (this.myForm.controls.firstName.valid && this.myForm.controls.lastName.valid && this.myForm.controls.phone.valid) {
+        const p = new Payment();
+
+        p.FirstName = this.myForm.controls.firstName.value;
+        p.LastName = this.myForm.controls.lastName.value;
+        p.PhoneNumber = this.myForm.controls.phone.value;
+        this.paymentService.SisterandBrother(p).subscribe(ans => {
+
+          console.log('ans');
+          console.log(ans);
+
+          this.u = ans;
+          if (this.u) {
+            console.log('yes!!!!!!!!!!!!!!');
+          }
+        });
+
+
+
+        //   this.u = ans;
+        // });
+        if (this.u) {
+          console.log('yes!!!!!!!!!!!!!!');
+        }
+
       }
     }
   }
+  ///
+
+  // addNewUser() {
+  //   if (this.myForm.invalid) {
+  //     const u = new NewUser();
+  //     u.password = this.myForm.controls.password.value;
+  //     u.userName = this.myForm.controls.name.value;
+  //     u.userAdmin = 0;
+  //     u.email = this.myForm.controls.email.value;
+  //     this.userService.createUser(u).subscribe(ans => {
+
+  //       this.myForm.reset();
+  //     });
+
 }
-///
-
-// addNewUser() {
-//   if (this.myForm.invalid) {
-//     const u = new NewUser();
-//     u.password = this.myForm.controls.password.value;
-//     u.userName = this.myForm.controls.name.value;
-//     u.userAdmin = 0;
-//     u.email = this.myForm.controls.email.value;
-//     this.userService.createUser(u).subscribe(ans => {
-
-//       this.myForm.reset();
-//     });
-
-///

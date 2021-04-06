@@ -1,3 +1,35 @@
+<div class="card p-shadow-4 mt-5 mx-auto ">
+    <form
+        [formGroup]="myForm"
+        (submit)="addNewStudent(hmo.checked,boy.checked,girl.checked,payments.click)"
+    >
+        <h1
+            *ngIf="student==undefined"
+            class="border1"
+        >
+            פרטיים אישיים
+        </h1>
+        <h1
+            *ngIf="student!=undefined"
+            class="border1"
+        >
+            עריכת פרטי תלמיד
+        </h1>
+        <!-- <ng-template class="border1" #edit >עריכת פרטי תלמיד</ng-template> -->
+        <!-- <h1 *ngIf ="data==false" class="border1">עריכת פרטי תלמיד</h1> -->
+        <br>
+        <fieldset class="form-containel">
+            <div class="cardBody  mx-auto ">
+                <!-- <div id="block_containel">
+            <div class="form-group">
+                <label>שם פרטי</label>
+                <input
+                    type="text"
+                    class="form-control"
+
+
+                >
+
 <form [formGroup]="myForm" (submit)="addNewStudent(hmo.checked)">
     <h1 class="border1">פרטיים אישיים</h1>
     <br>
@@ -6,6 +38,7 @@
             <div class="form-group">
                 <label>שם פרטי</label>
                 <input type="text" class="form-control" formControlName ="firstname" id="fname">
+>>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
             </div>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <div class="form-group">
@@ -13,86 +46,244 @@
                 <input
                     type="text"
                     class="form-control"
-                    formControlName="lastName"
-                    id="lname"
+
+
                 >
             </div>
-        </div>
+        </div> -->
+                <div>
+                    <div>
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="שם פרטי"
+                            aria-label="First name"
+                            formControlName="firstname"
+                            id="fname"
+                            pInputText
+                            class="p-d-flex p-text-right p-jc-center form-control"
+                        >
+                    </div>
+                    <br>
+                    <div>
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="שם משפחה"
+                            aria-label="Last name"
+                            formControlName="lastName"
+                            id="lname"
+                            pInputText
+                            class="p-d-flex p-text-center p-jc-center form-control"
+                        >
+                    </div>
+                    <br>
+                </div>
+                <div id="block_containel">
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            class="form-control"
+                            formControlName="phone"
+                            (keydown)="PhoneNumber()"
+                            id="phonenumber"
+                            placeholder="טלפון"
+                            pInputText
+                            class="p-d-flex p-text-center p-jc-center form-control"
+                        >
+                        <br>
+                        <select
+                            placeholder="טלפון"
+                            class="custom-select"
+                        >
+                            <option *ngFor="let phone of phoneArray">{{phone.PhoneNumber}}</option>
+                        </select>
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <select
+                            placeholder="רמת לימוד"
+                            name="select1"
+                            formControlName="level"
+                            class="custom-select"
+                            aria-label="Default select example"
+                        >
+
+
+                            <option *ngFor="let i of levelsAndPrice">{{i.Level}}</option>
+
+
+                            <option
+                                *ngFor="let i of levelsAndPrice"
+                                value="{{i.Level}}"
+                            >
+                                {{i.Level}}
+                            </option>
+
+
+                        </select>
+                    </div>
+                </div>
+
+
+                <div id="block_containel">
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            class="form-control"
+                            formControlName="PlaceOfStudy"
+                            placeholder="מקום לימודים"
+                            pInputText
+                            class="p-d-flex p-text-center p-jc-center form-control"
+                        >
+                    </div>
+                    <div
+                        style="text-align: right !important;"
+                        class="form-group"
+                    >
+
+
+                        <input
+                            style="margin: left 1px !important;padding-left: 1.5px;"
+                            type="radio"
+                            formControlName="hmo"
+                            #hmo
+                        >
+                        <label>חבר בקופת חולים</label>
+                    </div>
+                </div>
+
+
+                <div *ngIf="hmo.checked">
+                    <input
+                        type="text"
+                        formControlName="identity"
+                        pInputText
+                        class="p-d-flex p-text-center p-jc-center form-control"
+                        placeholder="ת.ז."
+                    >
+
+
+                    <span
+                        class="required"
+                        *ngIf="myForm.controls['identity'].errors?.required!=null"
+                    >
+                        שדה זה נדרש
+                    </span>
+                    <span
+                        class="required"
+                        *ngIf="myForm.controls['identity'].errors?.pattern!=null"
+                    >
+                        יש להקיש ספרות בלבד
+                    </span>
+                    <span
+                        class="required"
+                        *ngIf="myForm.controls['identity'].errors?.minlength!=null"
+                    >
+                        יש להקיש 9 ספרות
+                    </span>
+                    <span
+                        class="required"
+                        *ngIf="myForm.controls['identity'].errors?.IdentityError!=null"
+                    >
+                        ת.ז שגויה
+                    </span>
+                    <span
+                        class="required"
+                        *ngIf="myForm.controls['identity'].errors?.maxlength!=null"
+                    >
+                        יש להקיש 9 ספרות
+                    </span>
+                </div>
+                <div style="text-align: right !important;">
+                    <label>מין</label>
+                    <br>
+                    <div class="form-check form-check-inline">
+                        <input
+                            class="form-check-input"
+                            type="radio"
+                            name="inlineRadioOptions"
+                            id="inlineRadio1"
+                            value="option1"
+                            formControlName="boyorgirl"
+                            #boy
+                        >
+                        <label
+                            class="form-check-label"
+                            for="inlineRadio1"
+                        >
+                            בן
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input
+                            class="form-check-input"
+                            type="radio"
+                            name="inlineRadioOptions"
+                            id="inlineRadio2"
+                            value="option2"
+                            formControlName="boyorgirl"
+                            #girl
+                        >
+                        <label
+                            class="form-check-label"
+                            for="inlineRadio2"
+                        >
+                            בת
+                        </label>
+                    </div>
+
+
+
+                </div>
+                <div>
+                    <div>מין</div>
+
+
+                    <br>
+                    <input
+                        type="radio"
+                        name="girorboy"
+                        #boy
+                    >
+                    זכר
+                    <br>
+                    <input
+                        type="radio"
+                        name="girorboy"
+                        #gir
+                    >
+                    נקבה
+                </div>
+                <br>
+                <div>
+                    <input
+                        type="text"
+                        formControlName="Remarks"
+                        placeholder="הערות"
+                        pInputText
+                        class="p-d-flex p-text-center p-jc-center form-control"
+                    >
+                </div>
+            </div>
+        </fieldset>
         <br>
-        <div id="block_containel">
-        <div class="from-group">
-            <label>טלפון</label>
+        <div class="d-flex flex-row justify-content-center">
             <input
-                type="text"
-                class="form-control"
-                formControlName="phone"
-                (keydown)="PhoneNumber()"
-                id="phonenumber"
+                class=" btn btn-primary mb-2 btn-lg p-shadow-4"
+                type="submit"
+                value="הרשמה"
             >
-            <select>
-            <option *ngFor ="let phone of phoneArray">{{phone.PhoneNumber}}</option>
-        </select>
-        </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <div class="form-group">
-                <label>רמת לימוד</label>
-                <select
-                    name="select1"
-                    formControlName="level"
-                >
-                    <option *ngFor ="let i of levelsAndPrice" value="{{i.Level}}">{{i.Level}}</option>
-                </select>
-            </div>
-        </div>
-        <br>
-        <div id="block_containel">
-            <div class="form-group">
-                <label>מקום לימודים</label>
-                <input
-                    type="text"
-                    class="form-control"
-                    formControlName="PlaceOfStudy"
-                >
-            </div>
-            <div class="form-group">
-                <label>חבר בקופת חולים</label>
-                <input
-                    type="radio"
-                    formControlName="hmo"
-                    #hmo
-                >
-            </div>
-        </div>
-        <div>
-            <div>מין</div>
-            
-        <br>
-        <input type="radio"name="girorboy" #boy>זכר
-        <br>
-        <input type="radio" name="girorboy" #gir>נקבה
-        </div>
-        <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <div *ngIf ="hmo.checked">
-            <label>ת.ז</label>
+            &nbsp;
             <input
-                type="text"
-                formControlName="identity"
+                class=" btn btn-primary mb-2 btn-lg p-shadow-4"
+                type="submit"
+                value="לתשלום"
+                #payments
             >
-            <span *ngIf ="myForm.controls['identity'].errors?.required!=null">שדה זה נדרש</span>
-            <span *ngIf ="myForm.controls['identity'].errors?.pattern!=null">יש להקיש ספרות בלבד</span>
-            <span *ngIf ="myForm.controls['identity'].errors?.minlength!=null">יש להקיש 9 ספרות</span>
-            <span *ngIf ="myForm.controls['identity'].errors?.IdentityError!=null">ת.ז שגויה</span>
-            <span *ngIf ="myForm.controls['identity'].errors?.maxlength!=null">יש להקיש 9 ספרות</span>
         </div>
-         <div>
-          <label>הערות</label>
-          <input
-              type="text"
-              formControlName="Remarks"
-          >
-        </div>
-    </fieldset>
-    <input  type="submit" value="להרשמה" class="btn btn-primary">
-</form>
+
+
+    </form>
+</div>
 <!-- <div>{{mass}}</div> -->

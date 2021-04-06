@@ -106,5 +106,9 @@ const checkIfTheRightUser = async (user) => {
     }
 }
 module.exports = {
+<<<<<<< HEAD
+    createUser,checkIfTheRightUser
+=======
     createUser, checkIfTheRightUser
+>>>>>>> ef2a27cdebee9d76209ecc114d64bd4ee37ba31f
 }

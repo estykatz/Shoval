@@ -1,23 +1,78 @@
-<h1>רשימת התלמידים</h1>
-<table class="table table-hover" (onload)="this.ngOnInit()">
-  <tr>
-    <th></th>
-    <th>שם פרטי</th>
-    <th>שם משפחה</th>
-    <th>טלפון</th>
-    <th>מקום לימודים</th>
-    <th>רמת לימוד</th>
-    <th>ת"ז</th>
-    <th>הערות</th>
-  </tr>
-  <tr *ngFor = "let i of students">
-  <td><button value="לפרטים" (click)="getDetails(i.FirstName,i.Lastname,i.PhoneNumber)"></button></td>
-  <td>{{i.FirstName}}</td>
-  <td>{{i.Lastname}}</td>
-  <td>{{i.PhoneNumber}}</td>
-  <td>{{i.PlaceOfStudy}}</td>
-  <td>{{i.SwimmingLevels}}</td>
-  <td>{{i.studentId}}</td>
-  <td>{{i.Remarks}}</td>
-  </tr>
-</table>
+<br>
+<div>
+    <div class="d-flex justify-content-between">
+        <select
+            id="s"
+            class="form-select  custom-select"
+            style="margin-right: 5vw !important;text-align: right !important;"
+            aria-label="Default select example"
+            placeholder="מיין לפי"
+        >
+            <option>שם פרטי</option>
+            <option>שם משפחה</option>
+            <option>טלפון</option>
+            <option>מקום לימודים</option>
+            <option>רמת לימוד</option>
+        </select>
+        <button
+            class=" btn btn-primary mb-2 btn-lg p-shadow-4"
+            (click)="splitingToGroups()"
+        >
+            לחלוקה לקבוצות
+        </button>
+    </div>
+    <br>
+    <table
+        style="width: 90vw ;margin: auto !important;"
+        class="table table-hover "
+        (onload)="this.ngOnInit()"
+    >
+        <tbody>
+            <tr>
+                <th></th>
+                <th>שם פרטי</th>
+                <th>שם משפחה</th>
+                <th>טלפון</th>
+                <th>מקום לימודים</th>
+                <th>רמת לימוד</th>
+                <th>ת"ז</th>
+                <th>הערות</th>
+            </tr>
+            <tr *ngFor="let i of students">
+                <!-- <td><i class="bi bi-eye"(click)="getDetails(i.FirstName,i.Lastname,i.PhoneNumber)"></i></td> -->
+                <td class="p-text-center">
+                    <button
+                        class="btn-g"
+                        (click)="deleteStudent(i.FirstName,i.Lastname,i.PhoneNumber)"
+                    >
+                        <img
+                            src="../../../assets/045-trash-can-1.png"
+                            width="80%"
+                            alt
+                            srcset
+                        >
+                    </button>
+                    <button
+                        class="btn-g"
+                        (click)="redirectToRegistion(i)"
+                    >
+                        <img
+                            src="../../../assets/162-edit.png"
+                            width="80%"
+                            alt
+                            srcset
+                        >
+                    </button>
+                </td>
+                <td class="p-text-center">{{i.FirstName}}</td>
+                <td class="p-text-center">{{i.Lastname}}</td>
+                <td class="p-text-center">{{i.PhoneNumber}}</td>
+                <td class="p-text-center">{{i.PlaceOfStudy}}</td>
+                <td class="p-text-center">{{i.Level}}</td>
+                <td class="p-text-center">{{i.studentId}}</td>
+                <td class="p-text-center">{{i.Remarks}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+</div>

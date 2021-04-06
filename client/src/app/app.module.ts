@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PaymentComponent } from './components/payment/payment.component';
@@ -13,13 +13,18 @@ import { RegistratioComponent } from './components/registratio/registratio.compo
 import { NewUserComponent } from './components/new-user/new-user.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { UsersComponent } from './components/users/users.component';
-
-import { PersonalcardComponent } from './components/personalcard/personalcard.component';
-
 import { PersonalCardComponent } from './components/personal-card/personal-card.component';
 import { AllStudentsComponent } from './components/all-students/all-students.component';
 import { HomeComponent } from './components/home/home.component';
 import { EmailComponent } from './components/email/email.component';
+import { AllUsersComponent } from './components/all-users/all-users.component';
+
+// import { PersonalcardComponent } from './components/personalcard/personalcard.component';
+
+// import { PersonalCardComponent } from './components/personal-card/personal-card.component';
+// import { AllStudentsComponent } from './components/all-students/all-students.component';
+// import { HomeComponent } from './components/home/home.component';
+// import { EmailComponent } from './components/email/email.component';
 //// 5ea2ff208d8f3e0e5ff46ca51286c3068303a73a
 
 @NgModule({
@@ -32,14 +37,11 @@ import { EmailComponent } from './components/email/email.component';
     NewUserComponent,
     CoursesComponent,
     UsersComponent,
-//// HEAD
-    PersonalcardComponent
-////
-  ///  PersonalCardComponent,
-   // AllStudentsComponent,
-  //  HomeComponent,
-  //  EmailComponent
-///>>>>>>> 5ea2ff208d8f3e0e5ff46ca51286c3068303a73a
+    PersonalCardComponent,
+    AllStudentsComponent,
+    HomeComponent,
+    EmailComponent,
+    AllUsersComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,7 @@ import { EmailComponent } from './components/email/email.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
- // providers: [DataService,LoginService],
+  // providers: [DataService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

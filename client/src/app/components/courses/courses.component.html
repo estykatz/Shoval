@@ -1,38 +1,17 @@
-<form  [formGroup]="myForm" (submit)="addNewCourse()">
+<div class="card p-shadow-4 p-mt-6 p-mx-auto mb-2">
+    <form
+        [formGroup]="myForm"
+        (submit)="addNewCourse()"
+    >
 
 
-    <h1 class="border1">קורסים</h1>
-    <fieldset>
-        <div id="block_containel">
-            <div class="form-group">
-                <label>תאריך תחילת הקורס</label>
-                <input
-                    type="date"
-                    class="form-control"
-                    formControlName="startDate"
 
-                >
-            </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <div class="form-group">
-                <label>תאריך סיום הקורס</label>
-                <input
-                    type="date"
-                    class="form-control"
-                    formControlName="endDate"
-                >
-            </div>
-        </div>
-        <br>
+        <h1 class="border1">קורסים</h1>
+        <fieldset>
 
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <br>
-        <div id="block_containel">
-            <div class="form-group">
-                <label>יום</label>
-<input type="text" class="form-control" formControlName="day">
 
-              <!-- <select
+
+            <!-- <select
                     name="dd"
                     formControlName="day"
 
@@ -45,12 +24,8 @@
                 </select> -->
 
 
-            </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <div class="form-group">
-                <label>שעה</label>
-                <input type="time"class="form-control" formControlName = "hour">
-                <!-- <select
+
+            <!-- <select
                     name="dd"
                     formControlName="hour"
                 >
@@ -60,31 +35,34 @@
                     <option value="4">17:00</option>
                     <option value="5">18:30</option>
                 </select> -->
-            </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
             <div class="form-group">
                 <label>רמת לימוד</label>
-                <select
-                    name="select1"
+                <input
+                    pInputText
+                    class="p-d-flex p-text-center p-jc-center"
+                    type="text"
+                    class="form-control"
                     formControlName="level"
-                    (change)="selectOption($event.target.value)"
                 >
-                    <option value="1">מתחילים</option>
-                    <option value="2">שיפור</option>
-                    <option value="3">מתקדמים</option>
-                </select>
             </div>
             <div class="form-group">
-              <label>מחיר</label>
-              <input type="number" class="form-control" formControlName = "price">
+                <label>מחיר</label>
+                <input
+                    pInputText
+                    class="p-d-flex p-text-center p-jc-center"
+                    type="number"
+                    class="form-control"
+                    formControlName="price"
+                >
             </div>
-        </div>
-        <br>
-
-    </fieldset>
-
-    <input type="submit" class="btn btn-primry">
-
-
-
-</form>
+        </fieldset>
+        <input
+            type="submit"
+            class="btn btn-primary"
+            value="אישור"
+        >
+    </form>
+</div>

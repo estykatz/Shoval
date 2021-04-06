@@ -1,9 +1,81 @@
 
+
 input.ng-invalid.ng.touched{
-    border-color: red;
+  border-color: red;
 }
 input.ng-valid.ng.touched{
-   border-color: green;
+ border-color: green;
+}
+.custom-select{
+  border-radius: 1rem !important;
+  border-color: #6DD5FA !important;
+}
+.form-control{
+  width:50vw !important;
+  text-align: right !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  border-radius: 1rem;
+  border: 1.5px solid #6DD5FA ;
+}
+.body{
+   direction: rtl !important;
+   text-align: right !important;
+}
+.cardBody{
+   width: 50vw;
+}
+h1{
+  text-align: center;
+  margin: 50px;
+}
+#edit{
+  text-align: center;
+  margin: 50px;
+}
+input.ng-invalid.ng-touched{
+  border-color: red;
+}
+.card{
+  /* display: flex; */
+  border-radius: 25px;
+  width: 60vw;
+
+}
+.required{
+  font-size: smaller !important;
+  color: red !important;
+  text-align: right !important;
+}
+.form-check-inline{
+  margin-right: 0rem !important;
+}
+.form-check-input{
+
+}
+.btn{
+  margin-right: auto !important;
+  margin-left: auto !important;
+  text-align: center !important;
+  border-radius: 1rem !important;
+  background-image:  linear-gradient(to bottom left,#2980B9,#6DD5FA) !important ;
+  border: none !important;
+}
+.input{
+  margin-left: auto !important;
+  margin-right: auto !important;
+   padding-bottom: 6rem !important;
+
+
+}
+@media only screen and (max-width:600px ){
+  .card{
+    width: 90vw !important;
+
+  }
+  .form-control{
+    width: 80vw !important;
+  }
 }
 h1{
   color: deeppink;
