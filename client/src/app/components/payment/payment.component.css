@@ -2,7 +2,7 @@
 
 }
 label{
-  color: deeppink;
+  color: black;
 }
 .btn{
   margin-right: auto !important;
@@ -43,10 +43,10 @@ h1{
 }
 
 
-h1{
+/* h1{
   text-align: center;
   color: deeppink;
-}
+} */
 #dateofpayment{
   width: 210px;
 }

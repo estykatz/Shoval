@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 export class UsersComponent implements OnInit {
   myForm: FormGroup;
   right: User;
-  logginid: any
+  logginid: any;
   trueOrFalsePassword = true;
   constructor(private userService: UserService, private loginService: LoginService, private tokenStorageService: TokenStorageService, private helpService: HelpService, private route: Router) { }
   ngOnInit(): void {

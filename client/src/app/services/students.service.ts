@@ -16,6 +16,9 @@ export class StudentsService {
   createStudent(student: Registratio): Observable<any> {
     return this.http.post<Registratio>(`${this.url}/addstudent`, student);
   }
+  editStudent(student: Registratio, updatedstudent: Registratio): Observable<any> {
+    return this.http.post<any>(`${this.url}/editstudent`, [student, updatedstudent]);
+  }
   getPhone(student: Registratio): Observable<any> {
     return this.http.post<Registratio>(`${this.url}/getphone`, student);
   }

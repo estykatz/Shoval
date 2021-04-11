@@ -15,7 +15,7 @@ import { Registratio } from 'src/app/models/registratio';
 export class PaymentComponent implements OnInit {
   myForm: FormGroup;
   u: boolean;
-
+  d: Date = new Date();
   student: Registratio;
   constructor(private paymentService: PaymentsService, private helpService: HelpService) { }
 
@@ -27,9 +27,9 @@ export class PaymentComponent implements OnInit {
     console.log(this.student);
 
     this.myForm = new FormGroup({
-      firstName: new FormControl(this.student.FirstName, Validators.compose([Validators.required, Validators.pattern('^[א-ת]{1}[א-ת ]*')])),
-      lastName: new FormControl(this.student.Lastname, Validators.compose([Validators.required, Validators.pattern('^[א-ת]{1}[א-ת ]*')])),
-      phone: new FormControl(this.student.PhoneNumber, Validators.required),
+      firstName: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[א-ת]{1}[א-ת ]*')])),
+      lastName: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[א-ת]{1}[א-ת ]*')])),
+      phone: new FormControl('', Validators.required),
       price: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[0-9]{0,}$')])),
       date: new FormControl('', Validators.required),
       // identity: new FormControl('', Validators.compose([Validators.required, identityValidator(),
@@ -39,6 +39,12 @@ export class PaymentComponent implements OnInit {
       shoval: new FormControl('')
     }, sisterAndBrotherValidator(['firstName', 'lastName', 'phone']));
     this.SisterAndBrother();
+    console.log('dayyyyyyyyy');
+    console.log(this.d.toLocaleString());
+
+    console.log(this.d.getDate());
+
+    this.myForm.controls.date.setValue(this.d.getDay());
   }
   errorsab() {
     console.log('eerrors');
@@ -118,9 +124,6 @@ export class PaymentComponent implements OnInit {
 
         //   this.u = ans;
         // });
-        if (this.u) {
-          console.log('yes!!!!!!!!!!!!!!');
-        }
 
       }
     }

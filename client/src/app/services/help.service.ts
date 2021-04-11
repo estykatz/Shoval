@@ -27,10 +27,10 @@ export class HelpService {
   getAllUsers() {
     this.userService.getAllUsers().subscribe(ans => this.allUsers = ans)
   }
-  setData(data: any) {
+  setData(data: Registratio) {
     this.data = data;
   }
-  getData(): any {
+  getData(): Registratio {
     return this.data;
   }
   getRoleLogedIn() {
@@ -57,7 +57,7 @@ export class HelpService {
     console.log(details);
     this.detail = details;
   }
-  get allDetails() {
-    return this.detail;
+  get allDetails():any {
+    return this.detail[0];
   }
 }

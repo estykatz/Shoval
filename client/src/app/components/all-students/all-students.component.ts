@@ -45,15 +45,20 @@ export class AllStudentsComponent implements OnInit {
 
     this.helpService.getDetails(r).subscribe(ans => {
       this.details = ans;
-      this.helpService.setDetails(ans);
+      this.helpService.setDetails(this.details);
       this.end = true;
+      this.router.navigate(['/personalCard']);
     })
     if (this.end) {
-      this.router.navigate(['/personalCard']);
+
     }
 
   }
   redirectToRegistion(student) {
+    console.log('studentallservice');
+
+    console.log(student);
+
     console.log('this is a student from allstudent');
 
     console.log(student);
@@ -61,6 +66,10 @@ export class AllStudentsComponent implements OnInit {
     this.helpService.setData(student);
     this.router.navigate(['/registratio', false])
   }
+  //   redirectToPersonalCard(student){
+  // this.helpService.setData(student);
+  // this.router.navigate([''])
+  //   }
   splitingToGroups() {
     this.splitingToGroupsService.splitingToGroups().subscribe(ans => {
       console.log(ans);

@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 
 import { Courses } from 'src/app/models/coures';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'app-registratio',
   templateUrl: './registratio.component.html',
@@ -25,9 +26,9 @@ export class RegistratioComponent implements OnInit {
   phoneArray: Array<Registratio>;
   levelsAndPrice: Array<Levels>;
   a: any;
-  dataR: boolean;
-  // @Input()
+  dataR: any;
   student: any;
+  studentLevel:string;
   //activeRoute:any;
   // @Output() myEvent = new EventEmitter<Registratio>();
   constructor(private studentService: StudentsService, private helpService: HelpService, private router: Router, private activeRoute: ActivatedRoute) { }
@@ -40,9 +41,9 @@ export class RegistratioComponent implements OnInit {
     console.log('fangerיחטעחטע');
     console.log(this.student);
     this.myForm = new FormGroup({
-      firstname: new FormControl(this.student.FirstName, Validators.required),
-      lastName: new FormControl(this.student.Lastname, Validators.required),
-      phone: new FormControl(this.student.PhoneNumber, Validators.required),
+      firstname: new FormControl('', Validators.required),
+      lastName: new FormControl('', Validators.required),
+      phone: new FormControl('', Validators.required),
       day: new FormControl('', Validators.required),
       hour: new FormControl('', Validators.required),
       level: new FormControl('', Validators.required),
@@ -51,14 +52,47 @@ export class RegistratioComponent implements OnInit {
       PlaceOfStudy: new FormControl('', Validators.required),
       hmo: new FormControl(''),
       boyorgirl: new FormControl(''),
-      Remarks: new FormControl('')
+      Remarks: new FormControl(''),
+      age:new FormControl('',Validators.required)
     });
+    // console.log('nisayon');
+    // console.log(this.registionOredit);
+
+    // console.log('hjhjhj');
+    // console.log(this.student);
+    // console.log('eerrors');
+    // console.log(this.myForm.errors?.SandB);
+
+
+
+    // console.log('studentinregistion');
+    // console.log(this.student);
+    this.registionOrEdit();
+  }
+  registionOrEdit() {
     this.activeRoute.params.subscribe(x => {
+      console.log('x');
+      console.log(x);
       this.dataR = x.data;
-      console.log('data');
+      console.log('dataחללחחל');
       console.log(this.dataR);
-      if (this.dataR = true) {
+      if (this.dataR === true) {
+        console.log('dataRRRRRRRRRRRRRRRRRRRRRRRR');
+        console.log(this.dataR);
+
         this.helpService.setData(undefined);
+      }
+      if (this.dataR == "false") {
+        this.myForm.controls.firstname.setValue(this.student.FirstName);
+        this.myForm.controls.lastName.setValue(this.student.Lastname);
+        this.myForm.controls.phone.setValue(this.student.PhoneNumber);
+        this.myForm.controls.level.setValue(this.student.Level);
+        this.myForm.controls.PlaceOfStudy.setValue(this.student.PlaceOfStudy);
+        this.myForm.controls.Remarks.setValue(this.student.Remarks);
+        if (this.student.studentId) {
+          console.log('jhjhjhj');
+          this.myForm.controls.hmo.setValue(1);
+        }
       }
       if (this.helpService.getData() != undefined) {
         console.log('aaaaaaa');
@@ -66,21 +100,13 @@ export class RegistratioComponent implements OnInit {
       //  console.log('studentinregistion');
       //  console.log(this.student);
     })
-
-    console.log('hjhjhj');
-    console.log(this.student);
-    console.log('eerrors');
-    console.log(this.myForm.errors?.SandB);
-
-
-
-    console.log('studentinregistion');
-    console.log(this.student);
-
   }
   //   this.getLevelandPrice();
   // }
-
+onChange(value){
+console.log(value);
+this.studentLevel=value;
+}
   getLevelandPrice() {
     this.studentService.getLevel().subscribe(ans => {
       console.log(ans);
@@ -90,7 +116,38 @@ export class RegistratioComponent implements OnInit {
 
     })
   }
-  addNewStudent(hmo, boy, girl, payments) {
+  editstudent(hmo, boy, girl) {
+    console.log('hmo');
+
+    console.log(hmo);
+    const s = new Registratio();
+    s.FirstName = this.myForm.controls.firstname.value;
+    s.Lastname = this.myForm.controls.lastName.value;
+    s.PhoneNumber = this.myForm.controls.phone.value;
+    s.studentId = this.myForm.controls.identity.value;
+    s.PlaceOfStudy = this.myForm.controls.PlaceOfStudy.value;
+    if (hmo) { s.Discount = true; }
+    else {
+      s.Discount = false;
+      s.studentId = null;
+    }
+    if (boy) { s.BoyOrGirl = 0; }
+    if (girl) { s.BoyOrGirl = 1; }
+    s.SwimmingLevels = this.myForm.controls.level.value;
+    s.Debt = 720;
+    s.age = 12;
+    s.Remarks = this.myForm.controls.Remarks.value;
+    this.studentService.editStudent(this.student, s).subscribe(a => {
+      console.log('aaaaaa');
+
+      console.log(a);
+      this.router.navigate(['/allStudents']);
+      this.helpService.getAllStudents();
+      this.myForm.reset();
+    })
+  }
+  //, payments!>
+  addNewStudent(hmo, boy, girl) {
 
     //   })
     // }
@@ -105,25 +162,29 @@ export class RegistratioComponent implements OnInit {
       s.studentId = this.myForm.controls.identity.value;
       s.PlaceOfStudy = this.myForm.controls.PlaceOfStudy.value;
       //   = this.myForm.controls.level.value;
+      console.log('fgfdkgjgegjog');
+      
       console.log(this.levelsAndPrice);
       console.log(this.myForm.controls.level.value);
 
       this.a = this.levelsAndPrice.find(level => level.Level = this.myForm.controls.level.value);
       console.log(this.a);
 
-      console.log(this.a.levelId);
-      s.SwimmingLevels = this.a.levelId;
+      //console.log(this.a.levelId);
+      // s.SwimmingLevels = this.a.levelId;
+      s.SwimmingLevels=this.studentLevel;
+      console.log('levellllllllllll');
+      console.log(s.SwimmingLevels);
+      
       s.Debt = 720;
       if (hmo) { s.Discount = true; }
       else { s.Discount = false; }
       if (boy) { s.BoyOrGirl = 0; }
       if (girl) { s.BoyOrGirl = 1; }
-      s.SwimmingLevels = this.myForm.controls.level.value;
-      s.Debt = 720;
-      if (hmo) { s.Discount = true; }
-      else { s.Discount = false; }
+      // s.SwimmingLevels = this.myForm.controls.level.value;
       console.log('kjkjkj');
       s.Remarks = this.myForm.controls.Remarks.value;
+      s.age=this.myForm.controls.age.value;
       this.studentService.createStudent(s).subscribe(ans => {
         this.myForm.reset();
         this.helpService.getAllStudents();
@@ -132,9 +193,9 @@ export class RegistratioComponent implements OnInit {
       console.log(s);
 
       this.helpService.setData(s);
-      if (payments) {
-        this.router.navigate(['/payment']);
-      }
+      // if (payments) {
+      this.router.navigate(['/payment']);
+      // }
     }
   }
   PhoneNumber() {

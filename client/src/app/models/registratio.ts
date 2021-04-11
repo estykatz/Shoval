@@ -9,10 +9,11 @@ export class Registratio {
   Discount: boolean;
   BoyOrGirl: number;
   Remarks: string;
+  age: number;
 
 
   constructor(id?: string, stLast?: string, stFirst?: string, ph?: string, plas?: string, swimming?: string,
-    debt?: number, discount?: boolean, boyorgirl?: number, remarks?: string) {
+    debt?: number, discount?: boolean, boyorgirl?: number, remarks?: string, age?: number) {
     this.studentId = id;
     this.Lastname = stLast;
     this.FirstName = stFirst;
@@ -23,6 +24,7 @@ export class Registratio {
     this.Discount = discount;
     this.BoyOrGirl = boyorgirl;
     this.Remarks = remarks;
+    this.age = age;
   }
 
 }
