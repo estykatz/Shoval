@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EmailService } from 'src/app/services/email.service';
 import { Email } from 'src/app/models/email';
 import { passwordValidator } from 'src/app/validators/userpassword.validator';
-import { NewUsers } from 'src/app/models/new-users';
+import { NewUsers } from 'src/app/models/newUsers';
 import { UserService } from 'src/app/services/user.service';
 import { HelpService } from "src/app/services/help.service";
 @Component({

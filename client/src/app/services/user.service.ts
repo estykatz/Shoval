@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
-import { NewUsers } from '../models/new-users';
+import { NewUsers } from '../models/newUsers';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +22,8 @@ export class UserService {
   getUser(): Observable<any> {
     return this.http.get<any>(this.url);
   }
-  getAllUsers(): Observable<any> {
-    return this.http.get<any>(`${this.url}/user/getallUsers`);
+  getAllUsers(): Observable<NewUsers[]> {
+    return this.http.get<NewUsers[]>(`${this.url}/user/getallUsers`);
   }
   deleteUser(user: NewUsers): Observable<any> {
     return this.http.post<any>(`${this.url}/user/deleteuser`, user)

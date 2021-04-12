@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'allStudents', component: AllStudentsComponent },
   { path: 'personalCard', component: PersonalCardComponent },
-  { path: 'email', component: EmailComponent },
+  { path: 'email/:data', component: EmailComponent },
   { path: 'getAllUsers', component: AllUsersComponent }
   //{ path:'',redirectTo:'/home',pathMatch:'full'}
 ];

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NewUsers } from 'src/app/models/new-users';
 import { UserService } from 'src/app/services/user.service';
 import { HelpService } from "src/app/services/help.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-users',
@@ -10,7 +11,7 @@ import { HelpService } from "src/app/services/help.service";
 })
 export class AllUsersComponent implements OnInit {
   allUsers: Array<NewUsers>;
-  constructor(private userService: UserService,private helpService:HelpService) { }
+  constructor(private userService: UserService, private helpService: HelpService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAllUsers();
@@ -21,9 +22,12 @@ export class AllUsersComponent implements OnInit {
       console.log(this.allUsers);
     })
   }
-  deleteUser(user){
+  redirectTonewUser(user) {
+    this.router.navigate(['/email', false]);
+  }
+  deleteUser(user) {
     console.log(user);
-    this.userService.deleteUser(user).subscribe(ans=>{
+    this.userService.deleteUser(user).subscribe(ans => {
       console.log(ans);
       this.helpService.getAllUsers();
     })

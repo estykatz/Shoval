@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   isAdmin: Boolean;
   data = true;
   parentData: any;
+  currentUser: any;
   constructor(private loginService: LoginService, private helpService: HelpService) { }
 
   ngOnInit(): void {
@@ -20,10 +21,25 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subscribed = this.loginService.loginchange.subscribe(val => this.loggedIn = val);
 
     this.isAdmin = this.helpService.getRoleLogedIn();
-    console.log(this.isAdmin);
+    console.log('isAdmin');
+    console.log(this.loginService.CurrentUser);
 
+    console.log(this.loggedIn);
+
+  }
+  getRole() {
+    this.currentUser = this.loginService.CurrentUser;
+    console.log('currentuser');
+    console.log(this.currentUser[0].admin);
+    if (this.currentUser[0].admin) {
+      return 1;
+    }
+    return 0;
   }
   ngOnDestroy() {
     this.subscribed.unsubscribe();
+  }
+  logOut() {
+    this.loginService.SetCurrentUser(undefined);
   }
 }

@@ -9,8 +9,10 @@ export class AllStudentsService {
 
   constructor(private http: HttpClient) { }
   url = 'http://localhost:4000/getAllStudents';
-  getAllStudents(): Observable<Registratio[]> {
-    return this.http.get<Registratio[]>(`${this.url}/table`);
+  getAllStudents(orderBy: string): Observable<Registratio[]> {
+    console.log('in servuce all');
+    console.log(orderBy);
+    return this.http.post<Registratio[]>(`${this.url}/table`, orderBy);
   }
   deleteStudent(student: Registratio): Observable<any> {
     return this.http.post<any>(`${this.url}/delete`, student)

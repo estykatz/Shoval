@@ -1,16 +1,43 @@
-<br><table style="width: 70vw !important ;margin: auto !important;" class="table table-hover ">
-  <tr>
-    <th></th>
-    <th>שם משתמש</th>
-    <th>סיסמא</th>
-    <th>אימייל</th>
-  </tr>
-  <tr *ngFor ="let i of allUsers">
-    <td class="p-text-center"><button class="btn-g p-text-center" (click)="deleteUser(i)">
-      <img src="../../../assets/045-trash-can-1.png" width="80%" alt="" srcset=""></button>
-    </td>
-    <td class="p-text-center justify-content-center">{{i.userName}}</td>
-    <td class="p-text-center justify-content-center">{{i.password}}</td>
-    <td class="p-text-center">{{i.email}}</td>
-  </tr>
+<br>
+<table
+    style="width: 70vw !important ;margin: auto !important;"
+    class="table table-hover "
+>
+    <tbody>
+        <tr>
+            <th></th>
+            <th>שם משתמש</th>
+            <th>סיסמא</th>
+            <th>אימייל</th>
+        </tr>
+        <tr *ngFor="let i of allUsers">
+            <td class="p-text-center">
+                <button
+                    class="btn-g p-text-center"
+                    (click)="deleteUser(i)"
+                >
+                    <img
+                        src="../../../assets/045-trash-can-1.png"
+                        width="80%"
+                        alt
+                        srcset
+                    >
+                </button>
+                <button
+                    class="btn-g"
+                    (click)="redirectTonewUser(i)"
+                >
+                    <img
+                        src="../../../assets/162-edit.png"
+                        width="80%"
+                        alt
+                        srcset
+                    >
+                </button>
+            </td>
+            <td class="p-text-center justify-content-center">{{i.UserName}}</td>
+            <td class="p-text-center justify-content-center">{{i.password}}</td>
+            <td class="p-text-center">{{i.email}}</td>
+        </tr>
+    </tbody>
 </table>

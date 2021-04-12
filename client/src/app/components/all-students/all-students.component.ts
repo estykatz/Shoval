@@ -16,17 +16,28 @@ export class AllStudentsComponent implements OnInit {
   students: Array<any>;
   details: PersonalCard;
   end = false;
+  orderBy: string = "FirstName";
   constructor(private allStudentsService: AllStudentsService, private helpService: HelpService, private splitingToGroupsService: SplitingToGroupsService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAllStudents();
   }
   getAllStudents() {
-    this.allStudentsService.getAllStudents().subscribe(ans => {
+    console.log('orderrrrrrrr');
+    console.log(this.orderBy);
+
+    this.allStudentsService.getAllStudents(this.orderBy).subscribe(ans => {
       this.students = ans
       console.log(this.students);
 
     });
+  }
+  onChange(value) {
+    console.log('value');
+
+    console.log(value);
+
+    this.orderBy = value;
   }
   deleteStudent(fn, ln, phone) {
     let r = new Registratio();

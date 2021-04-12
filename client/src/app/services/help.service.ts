@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AllStudentsService } from './all-students.service';
 import { Registratio } from '../models/registratio';
-import { NewUsers } from '../models/new-users';
+import { NewUsers } from '../models/newUsers';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { PersonalCard } from '../models/personal-card';
@@ -21,8 +21,8 @@ export class HelpService {
   private data: any = undefined;
   url = 'http://localhost:4000';
   constructor(private http: HttpClient, private allStudentsService: AllStudentsService, private userService: UserService, private tokenStorageService: TokenStorageService) { }
-  getAllStudents() {
-    this.allStudentsService.getAllStudents().subscribe(ans => this.students = ans);
+  getAllStudents(orderBy) {
+    this.allStudentsService.getAllStudents(orderBy).subscribe(ans => this.students = ans);
   }
   getAllUsers() {
     this.userService.getAllUsers().subscribe(ans => this.allUsers = ans)
@@ -57,7 +57,7 @@ export class HelpService {
     console.log(details);
     this.detail = details;
   }
-  get allDetails():any {
+  get allDetails(): any {
     return this.detail[0];
   }
 }

@@ -6,9 +6,6 @@
             class="d-inline-block align-top"
             alt
         >
-
-
-
         <button
             class="navbar-toggler"
             type="button"
@@ -25,9 +22,9 @@
             id="navbarSupportedContent"
         >
             <ul class=" nav-fill navbar-nav d-flex justify-content-end align-items-end">
-                <li
+                <!-- <li
                     class=" nav-item mx-2 active align-items-end"
-                    *ngIf="isAdmin&&loggedIn"
+                    *ngIf="loggedIn&&getRole()==1"
                 >
                     <a
                         [routerLink]="['/new-user']"
@@ -35,7 +32,7 @@
                     >
                         משתמש חדש
                     </a>
-                </li>
+                </li> -->
                 <li
                     class=" nav-item mx-2"
                     *ngIf="loggedIn"
@@ -82,7 +79,7 @@
                 </li>
                 <li
                     class=" nav-item mx-2"
-                    *ngIf="loggedIn&&isAdmin"
+                    *ngIf="loggedIn&&getRole()==1"
                 >
                     <a
                         [routerLink]="['/courses']"
@@ -96,7 +93,7 @@
                     *ngIf="loggedIn"
                 >
                     <a
-                        [routerLink]="['/email']"
+                        [routerLink]="['/email',data]"
                         routerLinkActive="activelink"
                     >
                         צירוף משתמש
@@ -104,8 +101,15 @@
                 </li>
                 <li
                     class=" nav-item mx-2"
-                    *ngIf="loggedIn&&isAdmin"
+                    *ngIf="loggedIn&&getRole()==1"
                 >
+
+
+
+
+
+
+
 
 
                     <a
@@ -117,6 +121,13 @@
                 </li>
             </ul>
         </div>
+
+
+
+
+
+
+
 
 
         <button
@@ -142,7 +153,20 @@
                 alt
             >
             <br>
-            מחובר
+            {{currentUser[0].UserName}}
+        </button>
+        <button
+            *ngIf="loggedIn"
+            class="button-user btn btn-primary"
+            (click)="logOut()"
+        >
+            <img
+                width="40vw"
+                src="../../../assets/168-padlock.png"
+                alt
+            >
+            <br>
+            ליציאה
         </button>
         <!-- routerLinkActive ="activelink" -->
     </nav>
@@ -158,7 +182,4 @@
         alt
         srcset
     >
-
-
-
 </div>

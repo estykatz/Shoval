@@ -31,7 +31,7 @@ export class PaymentComponent implements OnInit {
       lastName: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[א-ת]{1}[א-ת ]*')])),
       phone: new FormControl('', Validators.required),
       price: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[0-9]{0,}$')])),
-      date: new FormControl('', Validators.required),
+      datee: new FormControl('', Validators.required),
       // identity: new FormControl('', Validators.compose([Validators.required, identityValidator(),
       // Validators.minLength(9), Validators.maxLength(9), Validators.pattern('^[0-9]{0,}$')])),
       CardOrCash: new FormControl(''),
@@ -40,11 +40,11 @@ export class PaymentComponent implements OnInit {
     }, sisterAndBrotherValidator(['firstName', 'lastName', 'phone']));
     this.SisterAndBrother();
     console.log('dayyyyyyyyy');
-    console.log(this.d.toLocaleString());
+    console.log(this.d.toLocaleString().split(',')[0]);
 
     console.log(this.d.getDate());
 
-    this.myForm.controls.date.setValue(this.d.getDay());
+    this.myForm.controls.datee.setValue(this.d.toLocaleString().split(',')[0]);
   }
   errorsab() {
     console.log('eerrors');

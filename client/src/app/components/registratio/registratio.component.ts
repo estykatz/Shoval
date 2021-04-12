@@ -28,7 +28,8 @@ export class RegistratioComponent implements OnInit {
   a: any;
   dataR: any;
   student: any;
-  studentLevel:string;
+  studentLevel: string;
+  orderBy: string = "FirstName";
   //activeRoute:any;
   // @Output() myEvent = new EventEmitter<Registratio>();
   constructor(private studentService: StudentsService, private helpService: HelpService, private router: Router, private activeRoute: ActivatedRoute) { }
@@ -53,7 +54,7 @@ export class RegistratioComponent implements OnInit {
       hmo: new FormControl(''),
       boyorgirl: new FormControl(''),
       Remarks: new FormControl(''),
-      age:new FormControl('',Validators.required)
+      age: new FormControl('', Validators.required)
     });
     // console.log('nisayon');
     // console.log(this.registionOredit);
@@ -103,14 +104,15 @@ export class RegistratioComponent implements OnInit {
   }
   //   this.getLevelandPrice();
   // }
-onChange(value){
-console.log(value);
-this.studentLevel=value;
-}
+  onChange(value) {
+    console.log(value);
+    this.studentLevel = value;
+  }
   getLevelandPrice() {
     this.studentService.getLevel().subscribe(ans => {
       console.log(ans);
       this.levelsAndPrice = ans;
+      console.log('levelsandpriceeeeeeeeeeeeee');
 
       console.log(this.levelsAndPrice);
 
@@ -142,7 +144,7 @@ this.studentLevel=value;
 
       console.log(a);
       this.router.navigate(['/allStudents']);
-      this.helpService.getAllStudents();
+      this.helpService.getAllStudents(this.orderBy);
       this.myForm.reset();
     })
   }
@@ -163,7 +165,7 @@ this.studentLevel=value;
       s.PlaceOfStudy = this.myForm.controls.PlaceOfStudy.value;
       //   = this.myForm.controls.level.value;
       console.log('fgfdkgjgegjog');
-      
+
       console.log(this.levelsAndPrice);
       console.log(this.myForm.controls.level.value);
 
@@ -172,10 +174,10 @@ this.studentLevel=value;
 
       //console.log(this.a.levelId);
       // s.SwimmingLevels = this.a.levelId;
-      s.SwimmingLevels=this.studentLevel;
+      s.SwimmingLevels = this.studentLevel;
       console.log('levellllllllllll');
       console.log(s.SwimmingLevels);
-      
+
       s.Debt = 720;
       if (hmo) { s.Discount = true; }
       else { s.Discount = false; }
@@ -184,10 +186,10 @@ this.studentLevel=value;
       // s.SwimmingLevels = this.myForm.controls.level.value;
       console.log('kjkjkj');
       s.Remarks = this.myForm.controls.Remarks.value;
-      s.age=this.myForm.controls.age.value;
+      s.age = this.myForm.controls.age.value;
       this.studentService.createStudent(s).subscribe(ans => {
         this.myForm.reset();
-        this.helpService.getAllStudents();
+        this.helpService.getAllStudents(this.orderBy);
       });
 
       console.log(s);
